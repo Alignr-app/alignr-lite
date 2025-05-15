@@ -21,8 +21,14 @@ const Index: React.FC = () => {
 
       {/* Main Content */}
       <div className="flex-1 container max-w-md px-4 py-8 flex flex-col gap-6">
-        <div className="text-center space-y-3">
-          <h1 className="text-3xl font-semibold text-brand-offWhite">Alignr</h1>
+        <div className="text-center space-y-3 mt-4">
+          <div className="flex justify-center mb-6">
+            <img 
+              src="/lovable-uploads/abfbd617-c075-42e9-8570-aa4c5e52d386.png" 
+              alt="Alignr Logo" 
+              className="h-20"
+            />
+          </div>
           <p className="text-brand-lightBlue/90">
             Become more intentional with your phone usage through gentle visual cues and breathing patterns.
           </p>
