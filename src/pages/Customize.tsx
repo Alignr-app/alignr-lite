@@ -137,7 +137,7 @@ const Customize: React.FC = () => {
           <Button
             onClick={() => setPreviewActive(!previewActive)}
             variant={previewActive ? "default" : "secondary"}
-            className={`w-full ${previewActive ? 'bg-brand-gold hover:bg-brand-gold/90 text-brand-darkBlue' : 'border border-brand-blue/30 bg-brand-darkBlue text-brand-lightBlue hover:bg-brand-gold hover:text-brand-darkBlue'}`}
+            className={`w-full ${previewActive ? 'bg-brand-gold hover:bg-brand-gold/90 text-brand-darkBlue' : 'border border-brand-blue/30 bg-brand-darkBlue text-brand-gold hover:bg-brand-gold hover:text-brand-darkBlue'}`}
           >
             {previewActive ? "End Preview" : "Preview Your Settings"}
           </Button>
@@ -145,10 +145,10 @@ const Customize: React.FC = () => {
           <Separator className="bg-brand-blue/30" />
 
           <div className="flex gap-3">
-            <Button className="flex-1 border border-brand-blue/30 bg-brand-darkBlue text-brand-lightBlue hover:bg-brand-gold hover:text-brand-darkBlue" onClick={() => navigate("/")}>
+            <Button className="flex-1 border border-brand-blue/30 bg-brand-darkBlue text-brand-gold hover:bg-brand-gold hover:text-brand-darkBlue" onClick={() => navigate("/")}>
               Cancel
             </Button>
-            <Button className="flex-1 border border-brand-blue/30 bg-brand-darkBlue text-brand-lightBlue hover:bg-brand-gold hover:text-brand-darkBlue" onClick={handleSave}>
+            <Button className="flex-1 border border-brand-blue/30 bg-brand-darkBlue text-brand-gold hover:bg-brand-gold hover:text-brand-darkBlue" onClick={handleSave}>
               Save Changes
             </Button>
           </div>

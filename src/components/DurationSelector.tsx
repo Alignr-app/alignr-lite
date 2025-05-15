@@ -23,8 +23,8 @@ const DurationSelector: React.FC<DurationSelectorProps> = ({
           className={cn(
             "flex-1 min-w-[60px]",
             selectedDuration === duration 
-              ? "bg-brand-blue text-brand-offWhite hover:bg-brand-gold hover:text-brand-darkBlue" 
-              : "border border-brand-blue/30 bg-brand-darkBlue text-brand-lightBlue hover:bg-brand-gold hover:text-brand-darkBlue"
+              ? "bg-brand-blue text-brand-gold hover:bg-brand-gold hover:text-brand-darkBlue" 
+              : "border border-brand-blue/30 bg-brand-darkBlue text-brand-gold hover:bg-brand-gold hover:text-brand-darkBlue"
           )}
           onClick={() => onChange(duration)}
         >
