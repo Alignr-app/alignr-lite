@@ -41,28 +41,28 @@ const Customize: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-white to-gray-100">
+    <div className="page-background">
       <Header />
 
       <div className="flex-1 container max-w-lg px-4 py-6">
         <div className="mb-6">
-          <h1 className="text-2xl font-semibold">Customize Your Experience</h1>
-          <p className="text-gray-600">Choose visual cues and breathing patterns</p>
+          <h1 className="text-2xl font-semibold text-brand-offWhite">Customize Your Experience</h1>
+          <p className="text-brand-lightBlue/90">Choose visual cues and breathing patterns</p>
         </div>
 
         <Tabs defaultValue="visual-cues" className="w-full">
-          <TabsList className="w-full mb-6">
-            <TabsTrigger value="visual-cues" className="flex-1">
+          <TabsList className="w-full mb-6 bg-brand-darkBlue/50">
+            <TabsTrigger value="visual-cues" className="flex-1 data-[state=active]:bg-brand-blue data-[state=active]:text-brand-offWhite">
               Visual Cues
             </TabsTrigger>
-            <TabsTrigger value="breath-patterns" className="flex-1">
+            <TabsTrigger value="breath-patterns" className="flex-1 data-[state=active]:bg-brand-blue data-[state=active]:text-brand-offWhite">
               Breath Patterns
             </TabsTrigger>
           </TabsList>
 
           <TabsContent value="visual-cues" className="space-y-6">
-            <Card className="p-5">
-              <h2 className="text-lg font-medium mb-4">Choose Your Visual Cue</h2>
+            <Card className="p-5 glassmorphism">
+              <h2 className="text-lg font-medium mb-4 text-brand-offWhite">Choose Your Visual Cue</h2>
               <div className="grid grid-cols-2 gap-4">
                 {visualCues.map((cue) => (
                   <VisualCueCard
@@ -78,37 +78,37 @@ const Customize: React.FC = () => {
           </TabsContent>
 
           <TabsContent value="breath-patterns" className="space-y-6">
-            <Card className="p-5">
-              <h2 className="text-lg font-medium mb-4">Choose Breath Pattern</h2>
+            <Card className="p-5 glassmorphism">
+              <h2 className="text-lg font-medium mb-4 text-brand-offWhite">Choose Breath Pattern</h2>
               <div className="space-y-4">
                 <div
                   className={`p-4 rounded-lg cursor-pointer transition-all ${
                     breathMode === "focus"
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-secondary hover:bg-secondary/80"
+                      ? "bg-brand-blue text-brand-offWhite"
+                      : "bg-brand-darkBlue/50 hover:bg-brand-darkBlue/70 text-brand-lightBlue"
                   }`}
                   onClick={() => setBreathMode("focus")}
                 >
                   <h3 className="font-medium">Focus Mode</h3>
-                  <p className="text-sm">Balanced breath for concentration</p>
+                  <p className="text-sm opacity-90">Balanced breath for concentration</p>
                 </div>
 
                 <div
                   className={`p-4 rounded-lg cursor-pointer transition-all ${
                     breathMode === "deep"
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-secondary hover:bg-secondary/80"
+                      ? "bg-brand-blue text-brand-offWhite"
+                      : "bg-brand-darkBlue/50 hover:bg-brand-darkBlue/70 text-brand-lightBlue"
                   }`}
                   onClick={() => setBreathMode("deep")}
                 >
                   <h3 className="font-medium">Deep Dive Mode</h3>
-                  <p className="text-sm">Extended breath cycle for relaxation</p>
+                  <p className="text-sm opacity-90">Extended breath cycle for relaxation</p>
                 </div>
               </div>
             </Card>
 
-            <Card className="p-5">
-              <h2 className="text-lg font-medium mb-4">Color Palette</h2>
+            <Card className="p-5 glassmorphism">
+              <h2 className="text-lg font-medium mb-4 text-brand-offWhite">Color Palette</h2>
               <div className="space-y-3">
                 <ColorPalette
                   name="Cool Tones"
@@ -137,18 +137,18 @@ const Customize: React.FC = () => {
           <Button
             onClick={() => setPreviewActive(!previewActive)}
             variant={previewActive ? "default" : "secondary"}
-            className="w-full"
+            className={`w-full ${previewActive ? 'bg-brand-gold hover:bg-brand-gold/90 text-brand-darkBlue' : 'border-brand-gold/50 text-brand-gold hover:bg-brand-gold/30'}`}
           >
             {previewActive ? "End Preview" : "Preview Your Settings"}
           </Button>
 
-          <Separator />
+          <Separator className="bg-brand-blue/30" />
 
           <div className="flex gap-3">
-            <Button variant="outline" className="flex-1" onClick={() => navigate("/")}>
+            <Button variant="outline" className="flex-1 border-brand-blue/30 text-brand-lightBlue hover:bg-brand-darkBlue/50" onClick={() => navigate("/")}>
               Cancel
             </Button>
-            <Button className="flex-1" onClick={handleSave}>
+            <Button className="flex-1 bg-brand-blue hover:bg-brand-blue/90 text-brand-offWhite" onClick={handleSave}>
               Save Changes
             </Button>
           </div>

@@ -20,12 +20,12 @@ const VisualCueCard: React.FC<VisualCueCardProps> = ({
     <Card
       className={cn(
         "relative h-40 overflow-hidden rounded-xl cursor-pointer transition-all duration-300",
-        isSelected ? "ring-4 ring-offset-2 ring-primary" : "hover:scale-105"
+        isSelected ? "ring-4 ring-brand-gold ring-offset-2 ring-offset-brand-darkBlue" : "hover:scale-105"
       )}
       onClick={onClick}
     >
       <div className={`absolute inset-0 ${overlayClass} animate-pulse-slow`} />
-      <div className="absolute bottom-0 left-0 right-0 bg-black/30 p-3 text-white font-medium">
+      <div className="absolute bottom-0 left-0 right-0 bg-brand-darkBlue/80 backdrop-blur-sm p-3 text-brand-offWhite font-medium">
         {title}
       </div>
     </Card>

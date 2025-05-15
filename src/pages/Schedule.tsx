@@ -35,22 +35,22 @@ const Schedule: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-white to-gray-100">
+    <div className="page-background">
       <Header />
 
       <div className="flex-1 container max-w-lg px-4 py-6">
         <div className="mb-6">
-          <h1 className="text-2xl font-semibold">Schedule</h1>
-          <p className="text-gray-600">Set when you want Alignr to help you</p>
+          <h1 className="text-2xl font-semibold text-brand-offWhite">Schedule</h1>
+          <p className="text-brand-lightBlue/90">Set when you want Alignr to help you</p>
         </div>
 
         <div className="space-y-6">
-          <Card className="p-5">
-            <h2 className="text-lg font-medium mb-4">Peak Usage Schedule</h2>
+          <Card className="p-5 glassmorphism hover-card">
+            <h2 className="text-lg font-medium mb-4 text-brand-offWhite">Peak Usage Schedule</h2>
             
             <div className="space-y-6">
               <div>
-                <p className="text-sm text-gray-500 mb-3">Select days</p>
+                <p className="text-sm text-brand-lightBlue/80 mb-3">Select days</p>
                 <DaySelector selectedDays={selectedDays} onChange={setSelectedDays} />
               </div>
               
@@ -69,20 +69,20 @@ const Schedule: React.FC = () => {
 
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="font-medium">Automatically activate</h3>
-                  <p className="text-sm text-gray-500">
+                  <h3 className="font-medium text-brand-offWhite">Automatically activate</h3>
+                  <p className="text-sm text-brand-lightBlue/80">
                     Turn on during scheduled times
                   </p>
                 </div>
-                <Switch defaultChecked />
+                <Switch defaultChecked className="data-[state=checked]:bg-brand-gold" />
               </div>
             </div>
           </Card>
 
-          <Card className="p-5">
-            <h2 className="text-lg font-medium mb-4">Time-Based Activation</h2>
+          <Card className="p-5 glassmorphism hover-card">
+            <h2 className="text-lg font-medium mb-4 text-brand-offWhite">Time-Based Activation</h2>
             <div className="space-y-4">
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-brand-lightBlue/80">
                 Activate after continuous usage of:
               </p>
               <DurationSelector
@@ -92,25 +92,25 @@ const Schedule: React.FC = () => {
               />
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="font-medium">Smart activation</h3>
-                  <p className="text-sm text-gray-500">
+                  <h3 className="font-medium text-brand-offWhite">Smart activation</h3>
+                  <p className="text-sm text-brand-lightBlue/80">
                     Only activate during focus-requiring apps
                   </p>
                 </div>
-                <Switch defaultChecked />
+                <Switch defaultChecked className="data-[state=checked]:bg-brand-gold" />
               </div>
             </div>
           </Card>
         </div>
 
         <div className="mt-6 space-y-4">
-          <Separator />
+          <Separator className="bg-brand-blue/30" />
 
           <div className="flex gap-3">
-            <Button variant="outline" className="flex-1" onClick={() => navigate("/")}>
+            <Button variant="outline" className="flex-1 border-brand-blue/30 text-brand-lightBlue hover:bg-brand-darkBlue/50" onClick={() => navigate("/")}>
               Cancel
             </Button>
-            <Button className="flex-1" onClick={handleSave}>
+            <Button className="flex-1 bg-brand-blue hover:bg-brand-blue/90 text-brand-offWhite" onClick={handleSave}>
               Save Schedule
             </Button>
           </div>

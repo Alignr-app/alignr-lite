@@ -63,6 +63,14 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
+				// Brand Colors
+				brand: {
+					darkBlue: '#1F334B',
+					blue: '#2B6D8B',
+					lightBlue: '#D4ECFF',
+					offWhite: '#F4F6EB',
+					gold: '#D6B657',
+				},
 				// Alignr Custom Colors
 				coolTones: {
 					aqua: '#AEEEEE',
