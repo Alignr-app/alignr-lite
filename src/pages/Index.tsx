@@ -40,7 +40,7 @@ const Index: React.FC = () => {
           </Card>
 
           <Card className="p-6 text-center shadow-md hover:shadow-lg transition-shadow glassmorphism hover-card">
-            <h2 className="text-xl font-semibold mb-4 text-brand-offWhite">Schedule Your Mindfulness</h2>
+            <h2 className="text-xl font-semibold mb-4 text-brand-offWhite">Schedule Your Alignment</h2>
             <p className="text-brand-lightBlue/80 mb-6">
               Set times when you want to be most aware of your phone usage.
             </p>
