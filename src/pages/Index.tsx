@@ -35,7 +35,7 @@ const Index: React.FC = () => {
               Choose visual cues and breathing patterns that help you stay aligned.
             </p>
             <Link to="/customize">
-              <Button className="w-full bg-brand-blue hover:bg-brand-blue/90 text-brand-offWhite">Customize</Button>
+              <Button className="w-full border border-brand-blue/30 text-brand-lightBlue bg-brand-darkBlue hover:bg-brand-gold hover:text-brand-darkBlue transition-colors">Customize</Button>
             </Link>
           </Card>
 
@@ -45,7 +45,7 @@ const Index: React.FC = () => {
               Set times when you want to be most aware of your phone usage.
             </p>
             <Link to="/schedule">
-              <Button className="w-full" variant="outline">
+              <Button className="w-full border border-brand-blue/30 text-brand-lightBlue bg-brand-darkBlue hover:bg-brand-gold hover:text-brand-darkBlue transition-colors">
                 Schedule
               </Button>
             </Link>
@@ -55,7 +55,7 @@ const Index: React.FC = () => {
         <Button
           onClick={() => setPreviewActive(!previewActive)}
           variant={previewActive ? "default" : "secondary"}
-          className={`mt-4 ${previewActive ? 'bg-brand-gold hover:bg-brand-gold/90 text-brand-darkBlue' : 'border-brand-gold/50 text-brand-gold hover:bg-brand-darkBlue/50'}`}
+          className={`mt-4 ${previewActive ? 'bg-brand-gold hover:bg-brand-gold/90 text-brand-darkBlue' : 'border border-brand-blue/30 bg-brand-darkBlue text-brand-lightBlue hover:bg-brand-gold hover:text-brand-darkBlue'}`}
         >
           {previewActive ? "End Preview" : "Preview Your Settings"}
         </Button>

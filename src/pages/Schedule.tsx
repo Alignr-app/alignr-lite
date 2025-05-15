@@ -107,10 +107,10 @@ const Schedule: React.FC = () => {
           <Separator className="bg-brand-blue/30" />
 
           <div className="flex gap-3">
-            <Button variant="outline" className="flex-1 border-brand-blue/30 text-brand-lightBlue hover:bg-brand-darkBlue/50" onClick={() => navigate("/")}>
+            <Button className="flex-1 border border-brand-blue/30 bg-brand-darkBlue text-brand-lightBlue hover:bg-brand-gold hover:text-brand-darkBlue" onClick={() => navigate("/")}>
               Cancel
             </Button>
-            <Button className="flex-1 bg-brand-blue hover:bg-brand-blue/90 text-brand-offWhite" onClick={handleSave}>
+            <Button className="flex-1 border border-brand-blue/30 bg-brand-darkBlue text-brand-lightBlue hover:bg-brand-gold hover:text-brand-darkBlue" onClick={handleSave}>
               Save Schedule
             </Button>
           </div>
