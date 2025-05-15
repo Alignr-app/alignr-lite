@@ -32,7 +32,7 @@ const Index: React.FC = () => {
           <Card className="p-6 text-center shadow-md hover:shadow-lg transition-shadow glassmorphism hover-card">
             <h2 className="text-xl font-semibold mb-4 text-brand-offWhite">Customize Your Experience</h2>
             <p className="text-brand-lightBlue/80 mb-6">
-              Choose visual cues and breathing patterns that help you stay mindful.
+              Choose visual cues and breathing patterns that help you stay aligned.
             </p>
             <Link to="/customize">
               <Button className="w-full bg-brand-blue hover:bg-brand-blue/90 text-brand-offWhite">Customize</Button>
