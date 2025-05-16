@@ -43,6 +43,15 @@ const Index: React.FC = () => {
             </Card>
           </Link>
         </div>
+        
+        {/* Large Logo at the bottom */}
+        <div className="mt-16 mb-8 flex justify-center">
+          <img 
+            src="/lovable-uploads/da4a7b35-fff7-4c13-8eeb-046a902eeac7.png" 
+            alt="Alignr Logo" 
+            className="h-40 w-auto"
+          />
+        </div>
       </div>
     </div>
   );
