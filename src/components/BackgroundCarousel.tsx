@@ -1,6 +1,8 @@
+
 import React, { useState, useEffect } from "react";
 
 const images = [
+  "/lovable-uploads/5d20ae3f-e8e7-4350-9f87-37779e0d2274.png", // Canyon and stars
   "/lovable-uploads/8119c49b-d71f-41da-ac6d-d4722bd6a199.png",
   "/lovable-uploads/27cfb732-6252-416b-b746-acdd27835b72.png",
   "/lovable-uploads/dc9a399b-288c-4aa5-b612-217cdf3b4be9.png"

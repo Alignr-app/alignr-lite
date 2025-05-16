@@ -6,12 +6,14 @@ import Header from "@/components/Header";
 import { useAlignr } from "@/context/AlignrContext";
 import PreviewOverlay from "@/components/PreviewOverlay";
 import BreathAnimation from "@/components/BreathAnimation";
+import BackgroundCarousel from "@/components/BackgroundCarousel";
 
 const Index: React.FC = () => {
   const { activeVisualCue, breathMode, selectedPalette, previewActive } = useAlignr();
 
   return (
     <div className="page-background min-h-screen">
+      <BackgroundCarousel />
       <Header />
 
       {/* Preview Overlay */}
