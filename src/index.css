@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -117,22 +116,22 @@
 }
 
 .overlay-foggy-forest {
-  background-image: url('/images/foggy-forest.jpg');
+  background-image: url('/lovable-uploads/d8a80d31-de64-4206-9053-596a0b58b956.png');
   @apply bg-cover bg-center;
 }
 
 .overlay-colored-clouds {
-  background-image: url('/images/colored-clouds.jpg');
+  background-image: url('/lovable-uploads/0688ad64-b49a-459c-90b4-13ca2bc33c1e.png');
   @apply bg-cover bg-center;
 }
 
 .overlay-ocean-waves {
-  background-image: url('/images/ocean-waves.jpg');
+  background-image: url('/lovable-uploads/98999b3d-0839-45d2-b45a-a9737b570d49.png');
   @apply bg-cover bg-center;
 }
 
 .overlay-liquid-gold {
-  background-image: url('/images/liquid-gold.jpg');
+  background-image: url('/lovable-uploads/fbe1d413-4f78-4e98-aa9a-fb3ce2bd83b9.png');
   @apply bg-cover bg-center;
 }
 
@@ -145,4 +144,3 @@
 .hover-card {
   @apply transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:border-primary/30;
 }
-
