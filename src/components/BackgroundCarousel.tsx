@@ -18,7 +18,6 @@ const BackgroundCarousel: React.FC<BackgroundCarouselProps> = ({ opacity = 1 }) 
           opacity: opacity,
         }}
       />
-      {/* Dark overlay removed */}
     </div>
   );
 };
