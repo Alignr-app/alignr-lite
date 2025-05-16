@@ -13,6 +13,8 @@ import {
   AccordionTrigger
 } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
 import VisualCueCard from "@/components/VisualCueCard";
 import ColorPalette from "@/components/ColorPalette";
 
@@ -21,6 +23,7 @@ interface ScheduleItemProps {
   days: string[];
   startTime: string;
   endTime: string;
+  scheduleMode: "visual" | "breath";
   visualCue: string;
   breathMode: "focus" | "deep";
   colorPalette: {
@@ -35,6 +38,7 @@ const ScheduleItem: React.FC<ScheduleItemProps> = ({
   days,
   startTime,
   endTime,
+  scheduleMode,
   visualCue,
   breathMode,
   colorPalette,
@@ -73,6 +77,10 @@ const ScheduleItem: React.FC<ScheduleItemProps> = ({
     updateSchedule(id, { colorPalette: palette });
   };
 
+  const updateScheduleMode = (mode: "visual" | "breath") => {
+    updateSchedule(id, { scheduleMode: mode });
+  };
+
   // Format time for display
   const formatTime = (timeStr: string) => {
     const hour = parseInt(timeStr);
@@ -100,21 +108,28 @@ const ScheduleItem: React.FC<ScheduleItemProps> = ({
         <AccordionItem value="settings">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2 mb-2">
-              <div 
-                className="w-3 h-3 rounded-full" 
-                style={{ backgroundColor: visualCue === "foggy-forest" ? "#AEEEEE" : 
-                         visualCue === "colored-clouds" ? "#B2C8BA" : 
-                         visualCue === "ocean-waves" ? "#C4C3D0" : "#D8BFD8" }}
-              />
-              <span className="text-sm text-brand-lightBlue/80">
-                {visualCue === "foggy-forest" ? "Foggy Forest" : 
-                 visualCue === "colored-clouds" ? "Colored Clouds" : 
-                 visualCue === "ocean-waves" ? "Ocean Waves" : "Liquid Gold"}
-              </span>
-              <span className="mx-1 text-brand-lightBlue/60">•</span>
-              <span className="text-sm text-brand-lightBlue/80">
-                {breathMode === "focus" ? "Focus" : "Deep"} breathing
-              </span>
+              {scheduleMode === "visual" ? (
+                <>
+                  <div 
+                    className="w-3 h-3 rounded-full" 
+                    style={{ backgroundColor: visualCue === "foggy-forest" ? "#AEEEEE" : 
+                             visualCue === "colored-clouds" ? "#B2C8BA" : 
+                             visualCue === "ocean-waves" ? "#C4C3D0" : "#D8BFD8" }}
+                  />
+                  <span className="text-sm text-brand-lightBlue/80">
+                    {visualCue === "foggy-forest" ? "Foggy Forest" : 
+                     visualCue === "colored-clouds" ? "Colored Clouds" : 
+                     visualCue === "ocean-waves" ? "Ocean Waves" : "Liquid Gold"}
+                  </span>
+                </>
+              ) : (
+                <>
+                  <div className="w-3 h-3 rounded-full bg-brand-gold" />
+                  <span className="text-sm text-brand-lightBlue/80">
+                    {breathMode === "focus" ? "Focus" : "Deep"} breathing
+                  </span>
+                </>
+              )}
             </div>
             <AccordionTrigger className="py-0">
               <span className="sr-only">Toggle settings</span>
@@ -140,18 +155,43 @@ const ScheduleItem: React.FC<ScheduleItemProps> = ({
                   onChange={updateEndTime}
                 />
               </div>
-              
-              <Tabs defaultValue="visual-cues" className="w-full mt-4">
-                <TabsList className="w-full mb-3 bg-brand-darkBlue/50">
-                  <TabsTrigger value="visual-cues" className="flex-1 data-[state=active]:bg-brand-blue data-[state=active]:text-brand-offWhite">
-                    Visual Cues
-                  </TabsTrigger>
-                  <TabsTrigger value="breath-patterns" className="flex-1 data-[state=active]:bg-brand-blue data-[state=active]:text-brand-offWhite">
-                    Breath & Colors
-                  </TabsTrigger>
-                </TabsList>
 
-                <TabsContent value="visual-cues" className="space-y-3">
+              {/* Mode Selection (Visual vs Breath) */}
+              <div className="space-y-2">
+                <p className="text-sm text-brand-lightBlue/80">Schedule Mode</p>
+                <RadioGroup 
+                  defaultValue={scheduleMode} 
+                  value={scheduleMode}
+                  onValueChange={(value) => updateScheduleMode(value as "visual" | "breath")}
+                  className="flex flex-col space-y-2"
+                >
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="visual" id={`visual-${id}`} 
+                      className="text-brand-gold data-[state=checked]:border-brand-gold data-[state=checked]:text-brand-gold" />
+                    <Label 
+                      htmlFor={`visual-${id}`} 
+                      className="text-brand-lightBlue cursor-pointer"
+                    >
+                      Visual Cues
+                    </Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="breath" id={`breath-${id}`} 
+                      className="text-brand-gold data-[state=checked]:border-brand-gold data-[state=checked]:text-brand-gold" />
+                    <Label 
+                      htmlFor={`breath-${id}`} 
+                      className="text-brand-lightBlue cursor-pointer"
+                    >
+                      Breath Patterns
+                    </Label>
+                  </div>
+                </RadioGroup>
+              </div>
+              
+              {/* Show relevant settings based on selected mode */}
+              {scheduleMode === "visual" ? (
+                <div className="space-y-3">
+                  <p className="text-sm text-brand-lightBlue/80">Visual Cue</p>
                   <div className="grid grid-cols-2 gap-2">
                     {visualCues.map((cue) => (
                       <VisualCueCard
@@ -163,9 +203,34 @@ const ScheduleItem: React.FC<ScheduleItemProps> = ({
                       />
                     ))}
                   </div>
-                </TabsContent>
 
-                <TabsContent value="breath-patterns" className="space-y-3">
+                  <div className="space-y-2 mt-3">
+                    <p className="text-sm text-brand-lightBlue/80">Color Palette</p>
+                    <div className="space-y-2">
+                      <ColorPalette
+                        name="Cool Tones"
+                        colors={colorPalettes.coolTones.colors}
+                        isSelected={colorPalette.name === "Cool Tones"}
+                        onClick={() => updateColorPalette(colorPalettes.coolTones)}
+                      />
+                      <ColorPalette
+                        name="Earth Tones"
+                        colors={colorPalettes.earthTones.colors}
+                        isSelected={colorPalette.name === "Earth Tones"}
+                        onClick={() => updateColorPalette(colorPalettes.earthTones)}
+                      />
+                      <ColorPalette
+                        name="Soft Purples"
+                        colors={colorPalettes.softPurples.colors}
+                        isSelected={colorPalette.name === "Soft Purples"}
+                        onClick={() => updateColorPalette(colorPalettes.softPurples)}
+                      />
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="space-y-2">
+                  <p className="text-sm text-brand-lightBlue/80">Breath Pattern</p>
                   <div className="space-y-2">
                     <div
                       className={`p-3 rounded-lg cursor-pointer transition-all ${
@@ -215,8 +280,8 @@ const ScheduleItem: React.FC<ScheduleItemProps> = ({
                       />
                     </div>
                   </div>
-                </TabsContent>
-              </Tabs>
+                </div>
+              )}
             </div>
           </AccordionContent>
         </AccordionItem>

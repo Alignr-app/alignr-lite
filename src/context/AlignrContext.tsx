@@ -1,4 +1,3 @@
-
 import React, { createContext, useState, useContext, ReactNode } from "react";
 
 // Define Color Palette Types
@@ -13,6 +12,7 @@ interface Schedule {
   days: string[];
   startTime: string;
   endTime: string;
+  scheduleMode: "visual" | "breath"; // Added scheduleMode to track which feature is active
   visualCue: string;
   breathMode: "focus" | "deep";
   colorPalette: ColorPalette;
@@ -77,6 +77,7 @@ export const AlignrProvider: React.FC<{ children: ReactNode }> = ({ children }) 
       days: ["mon", "tue", "wed", "thu", "fri"],
       startTime: "09",
       endTime: "12",
+      scheduleMode: "visual", // Adding scheduleMode to existing schedules
       visualCue: "foggy-forest",
       breathMode: "focus",
       colorPalette: colorPalettes.coolTones,
@@ -86,6 +87,7 @@ export const AlignrProvider: React.FC<{ children: ReactNode }> = ({ children }) 
       days: ["mon", "tue", "wed", "thu", "fri"],
       startTime: "13",
       endTime: "17",
+      scheduleMode: "breath", // Adding scheduleMode to existing schedules
       visualCue: "colored-clouds",
       breathMode: "deep",
       colorPalette: colorPalettes.earthTones,
@@ -99,6 +101,7 @@ export const AlignrProvider: React.FC<{ children: ReactNode }> = ({ children }) 
       days: ["mon", "tue", "wed", "thu", "fri"],
       startTime: "09",
       endTime: "17",
+      scheduleMode: "visual", // Default to visual mode for new schedules
       visualCue: activeVisualCue,
       breathMode: breathMode,
       colorPalette: selectedPalette,

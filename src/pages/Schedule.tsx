@@ -62,6 +62,7 @@ const Schedule: React.FC = () => {
                     days={schedule.days}
                     startTime={schedule.startTime}
                     endTime={schedule.endTime}
+                    scheduleMode={schedule.scheduleMode}
                     visualCue={schedule.visualCue}
                     breathMode={schedule.breathMode}
                     colorPalette={schedule.colorPalette}
