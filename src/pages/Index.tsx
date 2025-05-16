@@ -36,6 +36,9 @@ const Index: React.FC = () => {
 
         <div className="grid gap-4">
           <Card className="p-6 text-center shadow-md hover:shadow-lg transition-shadow glassmorphism hover-card">
+            <div className="mb-3">
+              <span className="px-3 py-1 bg-brand-gold/90 text-brand-darkBlue text-sm rounded-full font-medium">Step 1</span>
+            </div>
             <h2 className="text-xl font-semibold mb-4 text-brand-offWhite">Customize Your Experience</h2>
             <p className="text-brand-lightBlue/80 mb-6">
               Choose visual cues and breathing patterns that help you stay aligned.
@@ -46,6 +49,9 @@ const Index: React.FC = () => {
           </Card>
 
           <Card className="p-6 text-center shadow-md hover:shadow-lg transition-shadow glassmorphism hover-card">
+            <div className="mb-3">
+              <span className="px-3 py-1 bg-brand-gold/90 text-brand-darkBlue text-sm rounded-full font-medium">Step 2</span>
+            </div>
             <h2 className="text-xl font-semibold mb-4 text-brand-offWhite">Schedule Your Alignment</h2>
             <p className="text-brand-lightBlue/80 mb-6">
               Set times when you want to be most aware of your phone usage.

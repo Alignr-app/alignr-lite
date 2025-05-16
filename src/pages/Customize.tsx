@@ -146,7 +146,7 @@ const Customize: React.FC = () => {
 
           <div className="flex gap-3">
             <Button className="flex-1 border border-brand-blue/30 bg-brand-darkBlue text-brand-gold hover:bg-brand-gold hover:text-brand-darkBlue" onClick={() => navigate("/")}>
-              Cancel
+              Back
             </Button>
             <Button className="flex-1 border border-brand-blue/30 bg-brand-darkBlue text-brand-gold hover:bg-brand-gold hover:text-brand-darkBlue" onClick={handleSave}>
               Save Changes
