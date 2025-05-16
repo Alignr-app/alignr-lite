@@ -26,7 +26,7 @@ const Index: React.FC = () => {
             <img 
               src="/lovable-uploads/da4a7b35-fff7-4c13-8eeb-046a902eeac7.png" 
               alt="Alignr Logo" 
-              className="h-20"
+              className="h-40 w-auto" // Changed from h-20 to h-40 to make it much larger
             />
           </div>
           <p className="text-white/90">
