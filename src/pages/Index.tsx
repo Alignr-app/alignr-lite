@@ -2,6 +2,7 @@
 import React from "react";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import Header from "@/components/Header";
 import { useAlignr } from "@/context/AlignrContext";
 import PreviewOverlay from "@/components/PreviewOverlay";
 import BreathAnimation from "@/components/BreathAnimation";
@@ -12,14 +13,25 @@ const Index: React.FC = () => {
 
   return (
     <div className="page-background min-h-screen">
-      <BackgroundCarousel opacity={1} />
+      <BackgroundCarousel />
+      <Header />
 
       {/* Preview Overlay */}
       <PreviewOverlay overlayClass={`overlay-${activeVisualCue}`} active={previewActive} opacity={0.7} />
       <BreathAnimation mode={breathMode} colors={selectedPalette.colors} active={previewActive} />
 
       {/* Main Content */}
-      <div className="flex-1 container max-w-md px-4 py-8 flex flex-col gap-6 pt-20">
+      <div className="flex-1 container max-w-md px-4 py-8 flex flex-col gap-6">
+        <div className="text-center space-y-3 mt-4">
+          <div className="flex justify-center mb-6">
+            <img 
+              src="/lovable-uploads/da4a7b35-fff7-4c13-8eeb-046a902eeac7.png" 
+              alt="Alignr Logo" 
+              className="h-40 w-auto"
+            />
+          </div>
+        </div>
+
         <div className="grid gap-4">
           <Link to="/customize" className="block">
             <Card className="p-6 text-center shadow-md transition-shadow glassmorphism active:bg-brand-blue/10 md:hover:shadow-lg md:hover:border-primary/30">
