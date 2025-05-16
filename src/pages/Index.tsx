@@ -30,7 +30,7 @@ const Index: React.FC = () => {
             />
           </div>
           <p className="text-brand-lightBlue/90">
-            Become more intentional with your phone usage through gentle visual cues and breathing patterns.
+            Become more intentional with your phone usage through gentle visual cues and mind-alignment patterns.
           </p>
         </div>
 
@@ -41,7 +41,7 @@ const Index: React.FC = () => {
             </div>
             <h2 className="text-xl font-semibold mb-4 text-brand-offWhite">Customize Your Experience</h2>
             <p className="text-brand-lightBlue/80 mb-6">
-              Choose visual cues and breathing patterns that help you stay aligned.
+              Choose visual cues and mind-alignment patterns that help you stay aligned.
             </p>
             <Link to="/customize">
               <Button className="w-full border border-brand-blue/30 text-brand-gold bg-brand-darkBlue hover:bg-brand-gold hover:text-brand-darkBlue transition-colors">Customize</Button>

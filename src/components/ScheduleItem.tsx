@@ -126,7 +126,7 @@ const ScheduleItem: React.FC<ScheduleItemProps> = ({
                 <>
                   <div className="w-3 h-3 rounded-full bg-brand-gold" />
                   <span className="text-sm text-brand-lightBlue/80">
-                    {breathMode === "focus" ? "Focus" : "Deep"} breathing
+                    {breathMode === "focus" ? "Focus" : "Deep"} mind-alignment
                   </span>
                 </>
               )}
@@ -182,7 +182,7 @@ const ScheduleItem: React.FC<ScheduleItemProps> = ({
                       htmlFor={`breath-${id}`} 
                       className="text-brand-lightBlue cursor-pointer"
                     >
-                      Breath Patterns
+                      Mind-Alignment Patterns
                     </Label>
                   </div>
                 </RadioGroup>
@@ -230,7 +230,7 @@ const ScheduleItem: React.FC<ScheduleItemProps> = ({
                 </div>
               ) : (
                 <div className="space-y-2">
-                  <p className="text-sm text-brand-lightBlue/80">Breath Pattern</p>
+                  <p className="text-sm text-brand-lightBlue/80">Mind-Alignment Pattern</p>
                   <div className="space-y-2">
                     <div
                       className={`p-3 rounded-lg cursor-pointer transition-all ${
