@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 
 const images = [
@@ -11,7 +10,7 @@ interface BackgroundCarouselProps {
   opacity?: number;
 }
 
-const BackgroundCarousel: React.FC<BackgroundCarouselProps> = ({ opacity = 0.25 }) => {
+const BackgroundCarousel: React.FC<BackgroundCarouselProps> = ({ opacity = 0.75 }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [previousImageIndex, setPreviousImageIndex] = useState(-1);
   const [isTransitioning, setIsTransitioning] = useState(false);
