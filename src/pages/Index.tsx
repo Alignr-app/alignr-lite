@@ -28,9 +28,6 @@ const Index: React.FC = () => {
               className="h-40 w-auto"
             />
           </div>
-          <p className="text-white/90">
-            Become more intentional with your phone usage through gentle visual cues and mind-alignment patterns.
-          </p>
         </div>
 
         <div className="grid gap-4">
@@ -40,9 +37,6 @@ const Index: React.FC = () => {
                 <span className="px-3 py-1 bg-brand-gold/90 text-brand-darkBlue text-sm rounded-full font-medium">Step 1</span>
               </div>
               <h2 className="text-xl font-semibold mb-4 text-brand-offWhite">Customize Your Experience</h2>
-              <p className="text-brand-lightBlue/80 mb-6">
-                Choose visual cues and mind-alignment patterns that help you stay aligned.
-              </p>
               <div className="text-brand-gold font-medium">Customize →</div>
             </Card>
           </Link>
@@ -53,9 +47,6 @@ const Index: React.FC = () => {
                 <span className="px-3 py-1 bg-brand-gold/90 text-brand-darkBlue text-sm rounded-full font-medium">Step 2</span>
               </div>
               <h2 className="text-xl font-semibold mb-4 text-brand-offWhite">Schedule Your Alignment</h2>
-              <p className="text-brand-lightBlue/80 mb-6">
-                Set times when you want to be most aware of your phone usage.
-              </p>
               <div className="text-brand-gold font-medium">Schedule →</div>
             </Card>
           </Link>
