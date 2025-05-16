@@ -44,8 +44,8 @@ const Index: React.FC = () => {
           </Link>
         </div>
         
-        {/* Logo Below Buttons */}
-        <div className="mt-12 flex justify-center">
+        {/* Logo Below Buttons - added 50px more top margin */}
+        <div className="mt-[162px] flex justify-center">
           <img 
             src="/lovable-uploads/44437f12-5067-4515-980b-344d2c178c8c.png" 
             alt="Alignr Logo" 
