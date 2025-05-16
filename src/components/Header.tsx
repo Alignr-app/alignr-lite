@@ -8,7 +8,7 @@ const Header: React.FC = () => {
       <div className="flex items-center gap-2">
         <Link to="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
           <img 
-            src="/lovable-uploads/f78bf3d9-9bf5-4c04-b340-6c817d3d8de0.png" 
+            src="/lovable-uploads/5209f898-6194-435f-bf23-8d1ea66e2976.png" 
             alt="Alignr Logo" 
             className="h-10 w-10"
           />

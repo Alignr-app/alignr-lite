@@ -24,12 +24,12 @@ const Index: React.FC = () => {
         <div className="text-center space-y-3 mt-4">
           <div className="flex justify-center mb-6">
             <img 
-              src="/lovable-uploads/abfbd617-c075-42e9-8570-aa4c5e52d386.png" 
+              src="/lovable-uploads/da4a7b35-fff7-4c13-8eeb-046a902eeac7.png" 
               alt="Alignr Logo" 
               className="h-20"
             />
           </div>
-          <p className="text-brand-lightBlue/90">
+          <p className="text-white/90">
             Become more intentional with your phone usage through gentle visual cues and mind-alignment patterns.
           </p>
         </div>
