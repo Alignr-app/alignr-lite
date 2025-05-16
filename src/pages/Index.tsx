@@ -14,7 +14,7 @@ const Index: React.FC = () => {
 
   return (
     <div className="page-background min-h-screen">
-      <BackgroundCarousel opacity={0.25} />
+      <BackgroundCarousel opacity={0.5} />
       <Header />
 
       {/* Preview Overlay */}
