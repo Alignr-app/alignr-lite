@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -111,10 +110,11 @@ const ScheduleItem: React.FC<ScheduleItemProps> = ({
               {scheduleMode === "visual" ? (
                 <>
                   <div 
-                    className="w-3 h-3 rounded-full" 
-                    style={{ backgroundColor: visualCue === "foggy-forest" ? "#AEEEEE" : 
-                             visualCue === "colored-clouds" ? "#B2C8BA" : 
-                             visualCue === "ocean-waves" ? "#C4C3D0" : "#D8BFD8" }}
+                    className={`w-3 h-3 rounded-full ${
+                      visualCue === "foggy-forest" ? "bg-[#AEEEEE]" : 
+                      visualCue === "colored-clouds" ? "bg-[#B2C8BA]" : 
+                      visualCue === "ocean-waves" ? "bg-[#C4C3D0]" : "bg-[#D8BFD8]"
+                    }`}
                   />
                   <span className="text-sm text-brand-lightBlue/80">
                     {visualCue === "foggy-forest" ? "Foggy Forest" : 
