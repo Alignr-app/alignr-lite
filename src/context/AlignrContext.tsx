@@ -7,6 +7,17 @@ type ColorPalette = {
   colors: string[];
 };
 
+// Define Schedule Type
+interface Schedule {
+  id: string;
+  days: string[];
+  startTime: string;
+  endTime: string;
+  visualCue: string;
+  breathMode: "focus" | "deep";
+  colorPalette: ColorPalette;
+}
+
 // Define the context state
 interface AlignrState {
   activeVisualCue: string;
@@ -25,6 +36,10 @@ interface AlignrState {
   setDuration: (duration: number) => void;
   previewActive: boolean;
   setPreviewActive: (active: boolean) => void;
+  schedules: Schedule[];
+  addSchedule: () => void;
+  updateSchedule: (id: string, updates: Partial<Omit<Schedule, "id">>) => void;
+  removeSchedule: (id: string) => void;
 }
 
 // Available color palettes
@@ -56,6 +71,52 @@ export const AlignrProvider: React.FC<{ children: ReactNode }> = ({ children }) 
   const [endTime, setEndTime] = useState("17");
   const [duration, setDuration] = useState(10);
   const [previewActive, setPreviewActive] = useState(false);
+  const [schedules, setSchedules] = useState<Schedule[]>([
+    {
+      id: "morning",
+      days: ["mon", "tue", "wed", "thu", "fri"],
+      startTime: "09",
+      endTime: "12",
+      visualCue: "foggy-forest",
+      breathMode: "focus",
+      colorPalette: colorPalettes.coolTones,
+    },
+    {
+      id: "afternoon",
+      days: ["mon", "tue", "wed", "thu", "fri"],
+      startTime: "13",
+      endTime: "17",
+      visualCue: "colored-clouds",
+      breathMode: "deep",
+      colorPalette: colorPalettes.earthTones,
+    },
+  ]);
+
+  const addSchedule = () => {
+    const newId = `schedule-${Date.now()}`;
+    const newSchedule: Schedule = {
+      id: newId,
+      days: ["mon", "tue", "wed", "thu", "fri"],
+      startTime: "09",
+      endTime: "17",
+      visualCue: activeVisualCue,
+      breathMode: breathMode,
+      colorPalette: selectedPalette,
+    };
+    setSchedules([...schedules, newSchedule]);
+  };
+
+  const updateSchedule = (id: string, updates: Partial<Omit<Schedule, "id">>) => {
+    setSchedules(
+      schedules.map((schedule) =>
+        schedule.id === id ? { ...schedule, ...updates } : schedule
+      )
+    );
+  };
+
+  const removeSchedule = (id: string) => {
+    setSchedules(schedules.filter((schedule) => schedule.id !== id));
+  };
 
   const value = {
     activeVisualCue,
@@ -74,6 +135,10 @@ export const AlignrProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     setDuration,
     previewActive,
     setPreviewActive,
+    schedules,
+    addSchedule,
+    updateSchedule,
+    removeSchedule,
   };
 
   return <AlignrContext.Provider value={value}>{children}</AlignrContext.Provider>;

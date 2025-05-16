@@ -11,6 +11,8 @@ import DaySelector from "@/components/DaySelector";
 import TimeSelector from "@/components/TimeSelector";
 import DurationSelector from "@/components/DurationSelector";
 import { useAlignr } from "@/context/AlignrContext";
+import ScheduleItem from "@/components/ScheduleItem";
+import { Plus } from "lucide-react";
 
 const Schedule: React.FC = () => {
   const navigate = useNavigate();
@@ -18,12 +20,11 @@ const Schedule: React.FC = () => {
   const {
     selectedDays,
     setSelectedDays,
-    startTime,
-    setStartTime,
-    endTime,
-    setEndTime,
     duration,
     setDuration,
+    schedules,
+    addSchedule,
+    removeSchedule
   } = useAlignr();
 
   const handleSave = () => {
@@ -46,27 +47,36 @@ const Schedule: React.FC = () => {
 
         <div className="space-y-6">
           <Card className="p-5 glassmorphism hover-card">
-            <h2 className="text-lg font-medium mb-4 text-brand-offWhite">Peak Usage Schedule</h2>
+            <h2 className="text-lg font-medium mb-4 text-brand-offWhite">Daily Schedule</h2>
             
-            <div className="space-y-6">
-              <div>
-                <p className="text-sm text-brand-lightBlue/80 mb-3">Select days</p>
-                <DaySelector selectedDays={selectedDays} onChange={setSelectedDays} />
-              </div>
+            <div className="space-y-4">
+              {schedules.length === 0 ? (
+                <p className="text-center text-brand-lightBlue/80 py-6">
+                  No time slots scheduled. Add one below.
+                </p>
+              ) : (
+                schedules.map(schedule => (
+                  <ScheduleItem
+                    key={schedule.id}
+                    id={schedule.id}
+                    days={schedule.days}
+                    startTime={schedule.startTime}
+                    endTime={schedule.endTime}
+                    visualCue={schedule.visualCue}
+                    breathMode={schedule.breathMode}
+                    colorPalette={schedule.colorPalette}
+                    onRemove={() => removeSchedule(schedule.id)}
+                  />
+                ))
+              )}
               
-              <div className="grid grid-cols-2 gap-4">
-                <TimeSelector
-                  label="Start Time"
-                  value={startTime}
-                  onChange={setStartTime}
-                />
-                <TimeSelector
-                  label="End Time"
-                  value={endTime}
-                  onChange={setEndTime}
-                />
-              </div>
-
+              <Button 
+                onClick={addSchedule}
+                className="w-full border border-brand-blue/30 text-brand-gold bg-brand-darkBlue hover:bg-brand-gold hover:text-brand-darkBlue"
+              >
+                <Plus className="h-4 w-4 mr-2" /> Add Time Slot
+              </Button>
+              
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="font-medium text-brand-offWhite">Automatically activate</h3>
