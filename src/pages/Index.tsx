@@ -26,7 +26,7 @@ const Index: React.FC = () => {
             <img 
               src="/lovable-uploads/da4a7b35-fff7-4c13-8eeb-046a902eeac7.png" 
               alt="Alignr Logo" 
-              className="h-40 w-auto" // Changed from h-20 to h-40 to make it much larger
+              className="h-40 w-auto"
             />
           </div>
           <p className="text-white/90">
@@ -63,14 +63,6 @@ const Index: React.FC = () => {
             </Link>
           </Card>
         </div>
-
-        <Button
-          onClick={() => setPreviewActive(!previewActive)}
-          variant={previewActive ? "default" : "secondary"}
-          className={`mt-4 ${previewActive ? 'bg-brand-gold hover:bg-brand-gold/90 text-brand-darkBlue' : 'border border-brand-blue/30 bg-brand-darkBlue text-brand-gold hover:bg-brand-gold hover:text-brand-darkBlue'}`}
-        >
-          {previewActive ? "End Preview" : "Preview Your Settings"}
-        </Button>
       </div>
     </div>
   );
