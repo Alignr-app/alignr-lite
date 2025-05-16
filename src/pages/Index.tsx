@@ -24,7 +24,16 @@ const Index: React.FC = () => {
 
       {/* Main Content */}
       <div className="flex-1 container max-w-md px-4 py-8 flex flex-col gap-6">
-        <div className="grid gap-4 mt-8">
+        {/* Logo Above Buttons */}
+        <div className="mb-8 mt-4 flex justify-center">
+          <img 
+            src="/lovable-uploads/44437f12-5067-4515-980b-344d2c178c8c.png" 
+            alt="Alignr Logo" 
+            className="h-40 w-auto"
+          />
+        </div>
+        
+        <div className="grid gap-4">
           <Link to="/customize" className="block">
             <Card className="p-6 text-center shadow-md transition-shadow glassmorphism active:bg-brand-blue/10 md:hover:shadow-lg md:hover:border-primary/30">
               <div className="mb-3">
@@ -37,20 +46,11 @@ const Index: React.FC = () => {
           <Link to="/schedule" className="block">
             <Card className="p-6 text-center shadow-md transition-shadow glassmorphism active:bg-brand-blue/10 md:hover:shadow-lg md:hover:border-primary/30">
               <div className="mb-3">
-                <span className="px-3 py-1 bg-brand-gold/90 text-brand-darkBlue text-sm rounded-full font-medium">Step 2</span>
+                <span className="px-3 py-1 bg-brand-gold/90 text-brand-darkBlue text-sm rounded-full font-medium">Step 1</span>
               </div>
               <h2 className="text-xl font-semibold mb-4 text-brand-offWhite">Schedule Your Alignment</h2>
             </Card>
           </Link>
-        </div>
-        
-        {/* Large Logo at the bottom */}
-        <div className="mt-16 mb-8 flex justify-center">
-          <img 
-            src="/lovable-uploads/da4a7b35-fff7-4c13-8eeb-046a902eeac7.png" 
-            alt="Alignr Logo" 
-            className="h-40 w-auto"
-          />
         </div>
       </div>
     </div>
