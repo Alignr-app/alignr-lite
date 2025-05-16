@@ -2,19 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-interface HeaderProps {
-  showOnHome?: boolean;
-}
-
-const Header: React.FC<HeaderProps> = ({ showOnHome = false }) => {
-  // Get the current path
-  const path = window.location.pathname;
-  
-  // Don't render header on the home page unless explicitly requested
-  if (path === "/" && !showOnHome) {
-    return null;
-  }
-  
+const Header: React.FC = () => {
   return (
     <header className="w-full py-4 px-6 flex justify-between items-center border-b border-gray-100/10">
       <div className="flex items-center gap-2">
