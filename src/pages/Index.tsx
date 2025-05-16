@@ -37,7 +37,6 @@ const Index: React.FC = () => {
                 <span className="px-3 py-1 bg-brand-gold/90 text-brand-darkBlue text-sm rounded-full font-medium">Step 1</span>
               </div>
               <h2 className="text-xl font-semibold mb-4 text-brand-offWhite">Customize Your Experience</h2>
-              <div className="text-brand-gold font-medium">Customize →</div>
             </Card>
           </Link>
 
@@ -47,7 +46,6 @@ const Index: React.FC = () => {
                 <span className="px-3 py-1 bg-brand-gold/90 text-brand-darkBlue text-sm rounded-full font-medium">Step 2</span>
               </div>
               <h2 className="text-xl font-semibold mb-4 text-brand-offWhite">Schedule Your Alignment</h2>
-              <div className="text-brand-gold font-medium">Schedule →</div>
             </Card>
           </Link>
         </div>
