@@ -1,6 +1,5 @@
 
 import React from "react";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -35,33 +34,31 @@ const Index: React.FC = () => {
         </div>
 
         <div className="grid gap-4">
-          <Card className="p-6 text-center shadow-md hover:shadow-lg transition-shadow glassmorphism hover-card">
-            <div className="mb-3">
-              <span className="px-3 py-1 bg-brand-gold/90 text-brand-darkBlue text-sm rounded-full font-medium">Step 1</span>
-            </div>
-            <h2 className="text-xl font-semibold mb-4 text-brand-offWhite">Customize Your Experience</h2>
-            <p className="text-brand-lightBlue/80 mb-6">
-              Choose visual cues and mind-alignment patterns that help you stay aligned.
-            </p>
-            <Link to="/customize">
-              <Button className="w-full border border-brand-blue/30 text-brand-gold bg-brand-darkBlue hover:bg-brand-gold hover:text-brand-darkBlue transition-colors">Customize</Button>
-            </Link>
-          </Card>
+          <Link to="/customize" className="block">
+            <Card className="p-6 text-center shadow-md transition-shadow glassmorphism active:bg-brand-blue/10 md:hover:shadow-lg md:hover:border-primary/30">
+              <div className="mb-3">
+                <span className="px-3 py-1 bg-brand-gold/90 text-brand-darkBlue text-sm rounded-full font-medium">Step 1</span>
+              </div>
+              <h2 className="text-xl font-semibold mb-4 text-brand-offWhite">Customize Your Experience</h2>
+              <p className="text-brand-lightBlue/80 mb-6">
+                Choose visual cues and mind-alignment patterns that help you stay aligned.
+              </p>
+              <div className="text-brand-gold font-medium">Customize →</div>
+            </Card>
+          </Link>
 
-          <Card className="p-6 text-center shadow-md hover:shadow-lg transition-shadow glassmorphism hover-card">
-            <div className="mb-3">
-              <span className="px-3 py-1 bg-brand-gold/90 text-brand-darkBlue text-sm rounded-full font-medium">Step 2</span>
-            </div>
-            <h2 className="text-xl font-semibold mb-4 text-brand-offWhite">Schedule Your Alignment</h2>
-            <p className="text-brand-lightBlue/80 mb-6">
-              Set times when you want to be most aware of your phone usage.
-            </p>
-            <Link to="/schedule">
-              <Button className="w-full border border-brand-blue/30 text-brand-gold bg-brand-darkBlue hover:bg-brand-gold hover:text-brand-darkBlue transition-colors">
-                Schedule
-              </Button>
-            </Link>
-          </Card>
+          <Link to="/schedule" className="block">
+            <Card className="p-6 text-center shadow-md transition-shadow glassmorphism active:bg-brand-blue/10 md:hover:shadow-lg md:hover:border-primary/30">
+              <div className="mb-3">
+                <span className="px-3 py-1 bg-brand-gold/90 text-brand-darkBlue text-sm rounded-full font-medium">Step 2</span>
+              </div>
+              <h2 className="text-xl font-semibold mb-4 text-brand-offWhite">Schedule Your Alignment</h2>
+              <p className="text-brand-lightBlue/80 mb-6">
+                Set times when you want to be most aware of your phone usage.
+              </p>
+              <div className="text-brand-gold font-medium">Schedule →</div>
+            </Card>
+          </Link>
         </div>
       </div>
     </div>
