@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -10,6 +10,8 @@ import Header from "@/components/Header";
 import VisualCueCard from "@/components/VisualCueCard";
 import ColorPalette from "@/components/ColorPalette";
 import { useAlignr, colorPalettes } from "@/context/AlignrContext";
+import PreviewOverlay from "@/components/PreviewOverlay";
+import BreathAnimation from "@/components/BreathAnimation";
 
 const Customize: React.FC = () => {
   const navigate = useNavigate();
@@ -43,6 +45,10 @@ const Customize: React.FC = () => {
   return (
     <div className="page-background">
       <Header />
+
+      {/* Preview Overlay - Added here */}
+      <PreviewOverlay overlayClass={`overlay-${activeVisualCue}`} active={previewActive} opacity={0.7} />
+      <BreathAnimation mode={breathMode} colors={selectedPalette.colors} active={previewActive} />
 
       <div className="flex-1 container max-w-lg px-4 py-6">
         <div className="mb-6">
