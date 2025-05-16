@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -144,3 +145,13 @@
 .hover-card {
   @apply transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:border-primary/30;
 }
+
+/* Override light blue text with white */
+.text-brand-lightBlue {
+  @apply text-white;
+}
+
+.text-brand-lightBlue\/80, .text-brand-lightBlue\/90 {
+  @apply text-white/90;
+}
+
