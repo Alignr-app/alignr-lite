@@ -102,7 +102,7 @@ const Customize: React.FC = () => {
         <Tabs defaultValue="visual-cues" className="w-full" onValueChange={handleTabChange}>
           <TabsList className="w-full mb-6 bg-brand-darkBlue/50">
             <TabsTrigger value="visual-cues" className="flex-1 data-[state=active]:bg-brand-blue data-[state=active]:text-brand-offWhite">
-              Visual Cues
+              Mood Halo
             </TabsTrigger>
             <TabsTrigger value="breath-patterns" className="flex-1 data-[state=active]:bg-brand-blue data-[state=active]:text-brand-offWhite">
               Entrainment Patterns
@@ -111,7 +111,7 @@ const Customize: React.FC = () => {
 
           <TabsContent value="visual-cues" className="space-y-6">
             <Card className="p-5 glassmorphism">
-              <h2 className="text-lg font-medium mb-4 text-brand-offWhite">Choose Your Visual Cue</h2>
+              <h2 className="text-lg font-medium mb-4 text-brand-offWhite">Choose Your Mood Halo</h2>
               <div className="grid grid-cols-2 gap-4">
                 {visualCues.map((cue) => (
                   <VisualCueCard

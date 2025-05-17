@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -173,7 +172,7 @@ const ScheduleItem: React.FC<ScheduleItemProps> = ({
                       htmlFor={`visual-${id}`} 
                       className="text-brand-lightBlue cursor-pointer"
                     >
-                      Visual Cues
+                      Mood Halo
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2">
@@ -192,7 +191,7 @@ const ScheduleItem: React.FC<ScheduleItemProps> = ({
               {/* Show relevant settings based on selected mode */}
               {scheduleMode === "visual" ? (
                 <div className="space-y-3">
-                  <p className="text-sm text-brand-lightBlue/80">Visual Cue</p>
+                  <p className="text-sm text-brand-lightBlue/80">Mood Halo</p>
                   <div className="grid grid-cols-2 gap-2">
                     {visualCues.map((cue) => (
                       <VisualCueCard
