@@ -105,7 +105,7 @@ const Customize: React.FC = () => {
               Mood Halo
             </TabsTrigger>
             <TabsTrigger value="breath-patterns" className="flex-1 data-[state=active]:bg-brand-blue data-[state=active]:text-brand-offWhite">
-              Entrainment Patterns
+              Entrainment Halos
             </TabsTrigger>
           </TabsList>
 
@@ -128,7 +128,7 @@ const Customize: React.FC = () => {
 
           <TabsContent value="breath-patterns" className="space-y-6">
             <Card className="p-5 glassmorphism">
-              <h2 className="text-lg font-medium mb-4 text-brand-offWhite">Choose Entrainment Pattern</h2>
+              <h2 className="text-lg font-medium mb-4 text-brand-offWhite">Choose Entrainment Halo</h2>
               <div className="space-y-4">
                 <div
                   className={`p-4 rounded-lg cursor-pointer transition-all ${

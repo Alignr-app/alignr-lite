@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -182,7 +183,7 @@ const ScheduleItem: React.FC<ScheduleItemProps> = ({
                       htmlFor={`breath-${id}`} 
                       className="text-brand-lightBlue cursor-pointer"
                     >
-                      Entrainment Patterns
+                      Entrainment Halos
                     </Label>
                   </div>
                 </RadioGroup>
@@ -230,7 +231,7 @@ const ScheduleItem: React.FC<ScheduleItemProps> = ({
                 </div>
               ) : (
                 <div className="space-y-2">
-                  <p className="text-sm text-brand-lightBlue/80">Entrainment Pattern</p>
+                  <p className="text-sm text-brand-lightBlue/80">Entrainment Halo</p>
                   <div className="space-y-2">
                     <div
                       className={`p-3 rounded-lg cursor-pointer transition-all ${
