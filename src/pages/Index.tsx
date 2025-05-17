@@ -4,18 +4,22 @@ import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { useAlignr } from "@/context/AlignrContext";
 import PreviewOverlay from "@/components/PreviewOverlay";
+import BreathAnimation from "@/components/BreathAnimation";
 import BackgroundCarousel from "@/components/BackgroundCarousel";
 
 const Index: React.FC = () => {
-  const { activeVisualCue, previewActive } = useAlignr();
+  const { activeVisualCue, breathMode, selectedPalette, previewActive, activePreviewMode } = useAlignr();
 
   return (
     <div className="min-h-screen">
       <BackgroundCarousel />
 
-      {/* Preview Overlay */}
-      {previewActive && (
+      {/* Preview Overlay - Updated to conditionally render based on activePreviewMode */}
+      {previewActive && activePreviewMode === "visual" && (
         <PreviewOverlay overlayClass={`overlay-${activeVisualCue}`} active={previewActive} opacity={0.7} />
+      )}
+      {previewActive && activePreviewMode === "breath" && (
+        <BreathAnimation mode={breathMode} colors={selectedPalette.colors} active={previewActive} />
       )}
 
       {/* Main Content */}
@@ -23,8 +27,19 @@ const Index: React.FC = () => {
         <div className="grid gap-4 mt-8">
           <Link to="/customize" className="block">
             <Card className="p-6 text-center shadow-md transition-shadow glassmorphism active:bg-brand-blue/10 md:hover:shadow-lg md:hover:border-primary/30">
+              <div className="mb-3">
+                <span className="px-3 py-1 bg-brand-gold/90 text-brand-darkBlue text-sm rounded-full font-medium">Step 1</span>
+              </div>
               <h2 className="text-xl font-semibold mb-4 text-brand-offWhite">Customize Your Experience</h2>
-              <p className="text-brand-lightBlue/90">Choose and preview your mood halos</p>
+            </Card>
+          </Link>
+
+          <Link to="/schedule" className="block">
+            <Card className="p-6 text-center shadow-md transition-shadow glassmorphism active:bg-brand-blue/10 md:hover:shadow-lg md:hover:border-primary/30">
+              <div className="mb-3">
+                <span className="px-3 py-1 bg-brand-gold/90 text-brand-darkBlue text-sm rounded-full font-medium">Step 2</span>
+              </div>
+              <h2 className="text-xl font-semibold mb-4 text-brand-offWhite">Schedule Your Entrainment</h2>
             </Card>
           </Link>
         </div>
