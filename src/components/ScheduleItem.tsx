@@ -1,22 +1,19 @@
 
-import React, { useState } from "react";
+import React from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { colorPalettes, useAlignr } from "@/context/AlignrContext";
-import DaySelector from "@/components/DaySelector";
-import TimeSelector from "@/components/TimeSelector";
-import { ChevronDown, ChevronUp, X } from "lucide-react";
+import { useAlignr } from "@/context/AlignrContext";
+import { X } from "lucide-react";
 import { 
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger
 } from "@/components/ui/accordion";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
-import VisualCueCard from "@/components/VisualCueCard";
-import ColorPalette from "@/components/ColorPalette";
+import ScheduleTimeSettings from "@/components/schedule/ScheduleTimeSettings";
+import ScheduleModeSelector from "@/components/schedule/ScheduleModeSelector";
+import VisualModeSettings from "@/components/schedule/VisualModeSettings";
+import BreathModeSettings from "@/components/schedule/BreathModeSettings";
 
 interface ScheduleItemProps {
   id: string;
@@ -45,13 +42,6 @@ const ScheduleItem: React.FC<ScheduleItemProps> = ({
   onRemove
 }) => {
   const { updateSchedule } = useAlignr();
-
-  const visualCues = [
-    { id: "foggy-forest", title: "Foggy Forest" },
-    { id: "colored-clouds", title: "Colored Clouds" },
-    { id: "ocean-waves", title: "Ocean Waves" },
-    { id: "liquid-gold", title: "Liquid Gold" },
-  ];
 
   const updateDays = (newDays: string[]) => {
     updateSchedule(id, { days: newDays });
@@ -139,149 +129,36 @@ const ScheduleItem: React.FC<ScheduleItemProps> = ({
           
           <AccordionContent>
             <div className="pt-3 space-y-4">
-              <div>
-                <p className="text-sm text-brand-lightBlue/80 mb-2">Days</p>
-                <DaySelector selectedDays={days} onChange={updateDays} />
-              </div>
+              <ScheduleTimeSettings
+                days={days}
+                startTime={startTime}
+                endTime={endTime}
+                updateDays={updateDays}
+                updateStartTime={updateStartTime}
+                updateEndTime={updateEndTime}
+              />
               
-              <div className="grid grid-cols-2 gap-4">
-                <TimeSelector
-                  label="Start Time"
-                  value={startTime}
-                  onChange={updateStartTime}
-                />
-                <TimeSelector
-                  label="End Time"
-                  value={endTime}
-                  onChange={updateEndTime}
-                />
-              </div>
-
-              {/* Mode Selection (Visual vs Breath) */}
-              <div className="space-y-2">
-                <p className="text-sm text-brand-lightBlue/80">Schedule Mode</p>
-                <RadioGroup 
-                  defaultValue={scheduleMode} 
-                  value={scheduleMode}
-                  onValueChange={(value) => updateScheduleMode(value as "visual" | "breath")}
-                  className="flex flex-col space-y-2"
-                >
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="visual" id={`visual-${id}`} 
-                      className="text-brand-gold data-[state=checked]:border-brand-gold data-[state=checked]:text-brand-gold" />
-                    <Label 
-                      htmlFor={`visual-${id}`} 
-                      className="text-brand-lightBlue cursor-pointer"
-                    >
-                      Mood Halos
-                    </Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="breath" id={`breath-${id}`} 
-                      className="text-brand-gold data-[state=checked]:border-brand-gold data-[state=checked]:text-brand-gold" />
-                    <Label 
-                      htmlFor={`breath-${id}`} 
-                      className="text-brand-lightBlue cursor-pointer"
-                    >
-                      Entrainment Halos
-                    </Label>
-                  </div>
-                </RadioGroup>
-              </div>
+              <ScheduleModeSelector 
+                id={id}
+                scheduleMode={scheduleMode}
+                updateScheduleMode={updateScheduleMode}
+              />
               
               {/* Show relevant settings based on selected mode */}
               {scheduleMode === "visual" ? (
-                <div className="space-y-3">
-                  <p className="text-sm text-brand-lightBlue/80">Mood Halos</p>
-                  <div className="grid grid-cols-2 gap-2">
-                    {visualCues.map((cue) => (
-                      <VisualCueCard
-                        key={cue.id}
-                        title={cue.title}
-                        overlayClass={`overlay-${cue.id}`}
-                        isSelected={visualCue === cue.id}
-                        onClick={() => updateVisualCue(cue.id)}
-                      />
-                    ))}
-                  </div>
-
-                  <div className="space-y-2 mt-3">
-                    <p className="text-sm text-brand-lightBlue/80">Color Palette</p>
-                    <div className="space-y-2">
-                      <ColorPalette
-                        name="Cool Tones"
-                        colors={colorPalettes.coolTones.colors}
-                        isSelected={colorPalette.name === "Cool Tones"}
-                        onClick={() => updateColorPalette(colorPalettes.coolTones)}
-                      />
-                      <ColorPalette
-                        name="Earth Tones"
-                        colors={colorPalettes.earthTones.colors}
-                        isSelected={colorPalette.name === "Earth Tones"}
-                        onClick={() => updateColorPalette(colorPalettes.earthTones)}
-                      />
-                      <ColorPalette
-                        name="Soft Purples"
-                        colors={colorPalettes.softPurples.colors}
-                        isSelected={colorPalette.name === "Soft Purples"}
-                        onClick={() => updateColorPalette(colorPalettes.softPurples)}
-                      />
-                    </div>
-                  </div>
-                </div>
+                <VisualModeSettings 
+                  visualCue={visualCue}
+                  colorPalette={colorPalette}
+                  updateVisualCue={updateVisualCue}
+                  updateColorPalette={updateColorPalette}
+                />
               ) : (
-                <div className="space-y-2">
-                  <p className="text-sm text-brand-lightBlue/80">Entrainment Halo</p>
-                  <div className="space-y-2">
-                    <div
-                      className={`p-3 rounded-lg cursor-pointer transition-all ${
-                        breathMode === "focus"
-                          ? "bg-brand-blue text-brand-offWhite"
-                          : "bg-brand-darkBlue/50 hover:bg-brand-darkBlue/70 text-brand-lightBlue"
-                      }`}
-                      onClick={() => updateBreathMode("focus")}
-                    >
-                      <h3 className="font-medium">Focus Mode</h3>
-                      <p className="text-xs opacity-90">Balanced breath for concentration</p>
-                    </div>
-
-                    <div
-                      className={`p-3 rounded-lg cursor-pointer transition-all ${
-                        breathMode === "deep"
-                          ? "bg-brand-blue text-brand-offWhite"
-                          : "bg-brand-darkBlue/50 hover:bg-brand-darkBlue/70 text-brand-lightBlue"
-                      }`}
-                      onClick={() => updateBreathMode("deep")}
-                    >
-                      <h3 className="font-medium">Deep Dive Mode</h3>
-                      <p className="text-xs opacity-90">Extended breath cycle for relaxation</p>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2 mt-3">
-                    <p className="text-sm text-brand-lightBlue/80">Color Palette</p>
-                    <div className="space-y-2">
-                      <ColorPalette
-                        name="Cool Tones"
-                        colors={colorPalettes.coolTones.colors}
-                        isSelected={colorPalette.name === "Cool Tones"}
-                        onClick={() => updateColorPalette(colorPalettes.coolTones)}
-                      />
-                      <ColorPalette
-                        name="Earth Tones"
-                        colors={colorPalettes.earthTones.colors}
-                        isSelected={colorPalette.name === "Earth Tones"}
-                        onClick={() => updateColorPalette(colorPalettes.earthTones)}
-                      />
-                      <ColorPalette
-                        name="Soft Purples"
-                        colors={colorPalettes.softPurples.colors}
-                        isSelected={colorPalette.name === "Soft Purples"}
-                        onClick={() => updateColorPalette(colorPalettes.softPurples)}
-                      />
-                    </div>
-                  </div>
-                </div>
+                <BreathModeSettings
+                  breathMode={breathMode}
+                  colorPalette={colorPalette}
+                  updateBreathMode={updateBreathMode}
+                  updateColorPalette={updateColorPalette}
+                />
               )}
             </div>
           </AccordionContent>
