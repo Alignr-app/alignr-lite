@@ -173,7 +173,7 @@ const ScheduleItem: React.FC<ScheduleItemProps> = ({
                       htmlFor={`visual-${id}`} 
                       className="text-brand-lightBlue cursor-pointer"
                     >
-                      Mood Halo
+                      Mood Halos
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2">
@@ -192,7 +192,7 @@ const ScheduleItem: React.FC<ScheduleItemProps> = ({
               {/* Show relevant settings based on selected mode */}
               {scheduleMode === "visual" ? (
                 <div className="space-y-3">
-                  <p className="text-sm text-brand-lightBlue/80">Mood Halo</p>
+                  <p className="text-sm text-brand-lightBlue/80">Mood Halos</p>
                   <div className="grid grid-cols-2 gap-2">
                     {visualCues.map((cue) => (
                       <VisualCueCard
