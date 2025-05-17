@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AlignrProvider } from "@/context/AlignrContext";
 import Index from "./pages/Index";
 import Customize from "./pages/Customize";
-import Schedule from "./pages/Schedule";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,7 +21,6 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/customize" element={<Customize />} />
-            <Route path="/schedule" element={<Schedule />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

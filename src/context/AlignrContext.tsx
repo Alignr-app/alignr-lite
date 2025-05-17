@@ -7,18 +7,6 @@ type ColorPalette = {
   colors: string[];
 };
 
-// Define Schedule Type
-interface Schedule {
-  id: string;
-  days: string[];
-  startTime: string;
-  endTime: string;
-  scheduleMode: "visual" | "breath"; // Added scheduleMode to track which feature is active
-  visualCue: string;
-  breathMode: "focus" | "deep";
-  colorPalette: ColorPalette;
-}
-
 // Define the context state
 interface AlignrState {
   activeVisualCue: string;
@@ -27,20 +15,8 @@ interface AlignrState {
   setBreathMode: (mode: "focus" | "deep") => void;
   selectedPalette: ColorPalette;
   setSelectedPalette: (palette: ColorPalette) => void;
-  selectedDays: string[];
-  setSelectedDays: (days: string[]) => void;
-  startTime: string;
-  setStartTime: (time: string) => void;
-  endTime: string;
-  setEndTime: (time: string) => void;
-  duration: number;
-  setDuration: (duration: number) => void;
   previewActive: boolean;
   setPreviewActive: (active: boolean) => void;
-  schedules: Schedule[];
-  addSchedule: () => void;
-  updateSchedule: (id: string, updates: Partial<Omit<Schedule, "id">>) => void;
-  removeSchedule: (id: string) => void;
   activePreviewMode: "visual" | "breath";
   setActivePreviewMode: (mode: "visual" | "breath") => void;
 }
@@ -69,61 +45,8 @@ export const AlignrProvider: React.FC<{ children: ReactNode }> = ({ children }) 
   const [activeVisualCue, setActiveVisualCue] = useState("foggy-forest");
   const [breathMode, setBreathMode] = useState<"focus" | "deep">("focus");
   const [selectedPalette, setSelectedPalette] = useState<ColorPalette>(colorPalettes.coolTones);
-  const [selectedDays, setSelectedDays] = useState<string[]>(["mon", "tue", "wed", "thu", "fri"]);
-  const [startTime, setStartTime] = useState("09");
-  const [endTime, setEndTime] = useState("17");
-  const [duration, setDuration] = useState(10);
   const [previewActive, setPreviewActive] = useState(false);
   const [activePreviewMode, setActivePreviewMode] = useState<"visual" | "breath">("visual");
-  const [schedules, setSchedules] = useState<Schedule[]>([
-    {
-      id: "morning",
-      days: ["mon", "tue", "wed", "thu", "fri"],
-      startTime: "09",
-      endTime: "12",
-      scheduleMode: "visual", // Adding scheduleMode to existing schedules
-      visualCue: "foggy-forest",
-      breathMode: "focus",
-      colorPalette: colorPalettes.coolTones,
-    },
-    {
-      id: "afternoon",
-      days: ["mon", "tue", "wed", "thu", "fri"],
-      startTime: "13",
-      endTime: "17",
-      scheduleMode: "breath", // Adding scheduleMode to existing schedules
-      visualCue: "colored-clouds",
-      breathMode: "deep",
-      colorPalette: colorPalettes.earthTones,
-    },
-  ]);
-
-  const addSchedule = () => {
-    const newId = `schedule-${Date.now()}`;
-    const newSchedule: Schedule = {
-      id: newId,
-      days: ["mon", "tue", "wed", "thu", "fri"],
-      startTime: "09",
-      endTime: "17",
-      scheduleMode: "visual", // Default to visual mode for new schedules
-      visualCue: activeVisualCue,
-      breathMode: breathMode,
-      colorPalette: selectedPalette,
-    };
-    setSchedules([...schedules, newSchedule]);
-  };
-
-  const updateSchedule = (id: string, updates: Partial<Omit<Schedule, "id">>) => {
-    setSchedules(
-      schedules.map((schedule) =>
-        schedule.id === id ? { ...schedule, ...updates } : schedule
-      )
-    );
-  };
-
-  const removeSchedule = (id: string) => {
-    setSchedules(schedules.filter((schedule) => schedule.id !== id));
-  };
 
   const value = {
     activeVisualCue,
@@ -132,20 +55,8 @@ export const AlignrProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     setBreathMode,
     selectedPalette,
     setSelectedPalette,
-    selectedDays,
-    setSelectedDays,
-    startTime,
-    setStartTime,
-    endTime,
-    setEndTime,
-    duration,
-    setDuration,
     previewActive,
     setPreviewActive,
-    schedules,
-    addSchedule,
-    updateSchedule,
-    removeSchedule,
     activePreviewMode,
     setActivePreviewMode,
   };
