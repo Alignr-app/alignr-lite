@@ -1,9 +1,8 @@
 
 import React from "react";
 import VisualCueCard from "@/components/VisualCueCard";
-import ColorPalette from "@/components/ColorPalette";
-import { colorPalettes } from "@/context/AlignrContext";
 
+// This is a placeholder component since we're simplifying the app
 interface VisualModeSettingsProps {
   visualCue: string;
   colorPalette: {
@@ -11,14 +10,12 @@ interface VisualModeSettingsProps {
     colors: string[];
   };
   updateVisualCue: (cue: string) => void;
-  updateColorPalette: (palette: typeof colorPalettes.coolTones) => void;
+  updateColorPalette: (palette: any) => void;
 }
 
 const VisualModeSettings: React.FC<VisualModeSettingsProps> = ({
   visualCue,
-  colorPalette,
-  updateVisualCue,
-  updateColorPalette
+  updateVisualCue
 }) => {
   const visualCues = [
     { id: "foggy-forest", title: "Foggy Forest" },
@@ -40,30 +37,6 @@ const VisualModeSettings: React.FC<VisualModeSettingsProps> = ({
             onClick={() => updateVisualCue(cue.id)}
           />
         ))}
-      </div>
-
-      <div className="space-y-2 mt-3">
-        <p className="text-sm text-brand-lightBlue/80">Color Palette</p>
-        <div className="space-y-2">
-          <ColorPalette
-            name="Cool Tones"
-            colors={colorPalettes.coolTones.colors}
-            isSelected={colorPalette.name === "Cool Tones"}
-            onClick={() => updateColorPalette(colorPalettes.coolTones)}
-          />
-          <ColorPalette
-            name="Earth Tones"
-            colors={colorPalettes.earthTones.colors}
-            isSelected={colorPalette.name === "Earth Tones"}
-            onClick={() => updateColorPalette(colorPalettes.earthTones)}
-          />
-          <ColorPalette
-            name="Soft Purples"
-            colors={colorPalettes.softPurples.colors}
-            isSelected={colorPalette.name === "Soft Purples"}
-            onClick={() => updateColorPalette(colorPalettes.softPurples)}
-          />
-        </div>
       </div>
     </div>
   );
