@@ -80,13 +80,13 @@ const Customize: React.FC = () => {
           <p className="text-brand-lightBlue/90">Choose visual cues and entrainment patterns</p>
         </div>
 
-        {/* Quick Start Card - Added the new text as requested */}
+        {/* Quick Start Card - Updated text as requested */}
         <Card className="p-5 glassmorphism mb-6 overflow-hidden">
           <h2 className="text-lg font-medium mb-4 text-brand-offWhite">Quick Start</h2>
           <div className="flex flex-col sm:flex-row gap-4">
             <div className="flex-1">
               <p className="text-brand-lightBlue/90 mb-2">
-                Start aligning now, we'll cycle through the visual cues every hour.
+                Start aligning now - we'll cycle you into a new Mood or Entrainment Halo every hour.
               </p>
             </div>
             <div className="flex-1">
