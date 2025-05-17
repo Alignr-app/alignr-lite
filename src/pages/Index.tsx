@@ -39,7 +39,7 @@ const Index: React.FC = () => {
               <div className="mb-3">
                 <span className="px-3 py-1 bg-brand-gold/90 text-brand-darkBlue text-sm rounded-full font-medium">Step 2</span>
               </div>
-              <h2 className="text-xl font-semibold mb-4 text-brand-offWhite">Schedule Your Alignment</h2>
+              <h2 className="text-xl font-semibold mb-4 text-brand-offWhite">Schedule Your Entrainment</h2>
             </Card>
           </Link>
         </div>

@@ -53,7 +53,7 @@ const Customize: React.FC = () => {
       <div className="flex-1 container max-w-lg px-4 py-6">
         <div className="mb-6">
           <h1 className="text-2xl font-semibold text-brand-offWhite">Customize Your Experience</h1>
-          <p className="text-brand-lightBlue/90">Choose visual cues and mind-alignment patterns</p>
+          <p className="text-brand-lightBlue/90">Choose visual cues and entrainment patterns</p>
         </div>
 
         <Tabs defaultValue="visual-cues" className="w-full">
@@ -62,7 +62,7 @@ const Customize: React.FC = () => {
               Visual Cues
             </TabsTrigger>
             <TabsTrigger value="breath-patterns" className="flex-1 data-[state=active]:bg-brand-blue data-[state=active]:text-brand-offWhite">
-              Mind-Alignment Patterns
+              Entrainment Patterns
             </TabsTrigger>
           </TabsList>
 
@@ -85,7 +85,7 @@ const Customize: React.FC = () => {
 
           <TabsContent value="breath-patterns" className="space-y-6">
             <Card className="p-5 glassmorphism">
-              <h2 className="text-lg font-medium mb-4 text-brand-offWhite">Choose Mind-Alignment Pattern</h2>
+              <h2 className="text-lg font-medium mb-4 text-brand-offWhite">Choose Entrainment Pattern</h2>
               <div className="space-y-4">
                 <div
                   className={`p-4 rounded-lg cursor-pointer transition-all ${
