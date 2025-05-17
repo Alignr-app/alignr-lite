@@ -80,6 +80,31 @@ const Customize: React.FC = () => {
           <p className="text-brand-lightBlue/90">Choose visual cues and entrainment patterns</p>
         </div>
 
+        {/* Quick Start Card */}
+        <Card className="p-5 glassmorphism mb-6 overflow-hidden">
+          <h2 className="text-lg font-medium mb-4 text-brand-offWhite">Quick Start</h2>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex-1">
+              <p className="text-brand-lightBlue/90 mb-2">
+                Choose from our selection of visual cues and entrainment patterns to customize your experience.
+              </p>
+              <Button 
+                className="mt-2 border border-brand-blue/30 bg-brand-darkBlue text-brand-gold hover:bg-brand-gold hover:text-brand-darkBlue"
+                onClick={() => setPreviewActive(true)}
+              >
+                Preview Now
+              </Button>
+            </div>
+            <div className="flex-1">
+              <img 
+                src="/lovable-uploads/d9e68b90-c0e6-4c96-a11a-8050f62ceadd.png" 
+                alt="Visual cues preview" 
+                className="rounded-md w-full h-32 object-cover"
+              />
+            </div>
+          </div>
+        </Card>
+
         <Tabs defaultValue="visual-cues" className="w-full" onValueChange={handleTabChange}>
           <TabsList className="w-full mb-6 bg-brand-darkBlue/50">
             <TabsTrigger value="visual-cues" className="flex-1 data-[state=active]:bg-brand-blue data-[state=active]:text-brand-offWhite">
