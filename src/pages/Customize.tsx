@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
@@ -80,20 +79,12 @@ const Customize: React.FC = () => {
           <p className="text-brand-lightBlue/90">Choose visual cues and entrainment patterns</p>
         </div>
 
-        {/* Quick Start Card */}
+        {/* Quick Start Card - Modified to remove sentence and button */}
         <Card className="p-5 glassmorphism mb-6 overflow-hidden">
           <h2 className="text-lg font-medium mb-4 text-brand-offWhite">Quick Start</h2>
           <div className="flex flex-col sm:flex-row gap-4">
             <div className="flex-1">
-              <p className="text-brand-lightBlue/90 mb-2">
-                Choose from our selection of visual cues and entrainment patterns to customize your experience.
-              </p>
-              <Button 
-                className="mt-2 border border-brand-blue/30 bg-brand-darkBlue text-brand-gold hover:bg-brand-gold hover:text-brand-darkBlue"
-                onClick={() => setPreviewActive(true)}
-              >
-                Preview Now
-              </Button>
+              {/* Sentence and button removed as requested */}
             </div>
             <div className="flex-1">
               <img 
