@@ -11,6 +11,7 @@ const Customize: React.FC = () => {
   const {
     activeVisualCue,
     previewActive,
+    setPreviewActive
   } = useAlignr();
 
   return (
