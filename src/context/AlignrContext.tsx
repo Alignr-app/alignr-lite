@@ -1,3 +1,4 @@
+
 import React, { createContext, useState, useContext, ReactNode } from "react";
 
 // Define Color Palette Types
@@ -40,6 +41,8 @@ interface AlignrState {
   addSchedule: () => void;
   updateSchedule: (id: string, updates: Partial<Omit<Schedule, "id">>) => void;
   removeSchedule: (id: string) => void;
+  activePreviewMode: "visual" | "breath";
+  setActivePreviewMode: (mode: "visual" | "breath") => void;
 }
 
 // Available color palettes
@@ -71,6 +74,7 @@ export const AlignrProvider: React.FC<{ children: ReactNode }> = ({ children }) 
   const [endTime, setEndTime] = useState("17");
   const [duration, setDuration] = useState(10);
   const [previewActive, setPreviewActive] = useState(false);
+  const [activePreviewMode, setActivePreviewMode] = useState<"visual" | "breath">("visual");
   const [schedules, setSchedules] = useState<Schedule[]>([
     {
       id: "morning",
@@ -142,6 +146,8 @@ export const AlignrProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     addSchedule,
     updateSchedule,
     removeSchedule,
+    activePreviewMode,
+    setActivePreviewMode,
   };
 
   return <AlignrContext.Provider value={value}>{children}</AlignrContext.Provider>;

@@ -25,6 +25,8 @@ const Customize: React.FC = () => {
     setSelectedPalette,
     previewActive,
     setPreviewActive,
+    activePreviewMode,
+    setActivePreviewMode,
   } = useAlignr();
 
   const visualCues = [
@@ -42,13 +44,35 @@ const Customize: React.FC = () => {
     navigate("/");
   };
 
+  const handleTabChange = (value: string) => {
+    if (value === "visual-cues") {
+      setActivePreviewMode("visual");
+    } else if (value === "breath-patterns") {
+      setActivePreviewMode("breath");
+    }
+  };
+
+  const handleVisualCueClick = (cueId: string) => {
+    setActiveVisualCue(cueId);
+    setActivePreviewMode("visual");
+  };
+
+  const handleBreathModeClick = (mode: "focus" | "deep") => {
+    setBreathMode(mode);
+    setActivePreviewMode("breath");
+  };
+
   return (
     <div className="page-background">
       <Header />
 
-      {/* Preview Overlay - Added here */}
-      <PreviewOverlay overlayClass={`overlay-${activeVisualCue}`} active={previewActive} opacity={0.7} />
-      <BreathAnimation mode={breathMode} colors={selectedPalette.colors} active={previewActive} />
+      {/* Preview Overlay - Updated to conditionally render based on activePreviewMode */}
+      {previewActive && activePreviewMode === "visual" && (
+        <PreviewOverlay overlayClass={`overlay-${activeVisualCue}`} active={previewActive} opacity={0.7} />
+      )}
+      {previewActive && activePreviewMode === "breath" && (
+        <BreathAnimation mode={breathMode} colors={selectedPalette.colors} active={previewActive} />
+      )}
 
       <div className="flex-1 container max-w-lg px-4 py-6">
         <div className="mb-6">
@@ -56,7 +80,7 @@ const Customize: React.FC = () => {
           <p className="text-brand-lightBlue/90">Choose visual cues and entrainment patterns</p>
         </div>
 
-        <Tabs defaultValue="visual-cues" className="w-full">
+        <Tabs defaultValue="visual-cues" className="w-full" onValueChange={handleTabChange}>
           <TabsList className="w-full mb-6 bg-brand-darkBlue/50">
             <TabsTrigger value="visual-cues" className="flex-1 data-[state=active]:bg-brand-blue data-[state=active]:text-brand-offWhite">
               Visual Cues
@@ -76,7 +100,7 @@ const Customize: React.FC = () => {
                     title={cue.title}
                     overlayClass={`overlay-${cue.id}`}
                     isSelected={activeVisualCue === cue.id}
-                    onClick={() => setActiveVisualCue(cue.id)}
+                    onClick={() => handleVisualCueClick(cue.id)}
                   />
                 ))}
               </div>
@@ -93,7 +117,7 @@ const Customize: React.FC = () => {
                       ? "bg-brand-blue text-brand-offWhite"
                       : "bg-brand-darkBlue/50 hover:bg-brand-darkBlue/70 text-brand-lightBlue"
                   }`}
-                  onClick={() => setBreathMode("focus")}
+                  onClick={() => handleBreathModeClick("focus")}
                 >
                   <h3 className="font-medium">Focus Mode</h3>
                   <p className="text-sm opacity-90">Balanced breath for concentration</p>
@@ -105,7 +129,7 @@ const Customize: React.FC = () => {
                       ? "bg-brand-blue text-brand-offWhite"
                       : "bg-brand-darkBlue/50 hover:bg-brand-darkBlue/70 text-brand-lightBlue"
                   }`}
-                  onClick={() => setBreathMode("deep")}
+                  onClick={() => handleBreathModeClick("deep")}
                 >
                   <h3 className="font-medium">Deep Dive Mode</h3>
                   <p className="text-sm opacity-90">Extended breath cycle for relaxation</p>

@@ -8,18 +8,18 @@ import BreathAnimation from "@/components/BreathAnimation";
 import BackgroundCarousel from "@/components/BackgroundCarousel";
 
 const Index: React.FC = () => {
-  const { activeVisualCue, breathMode, selectedPalette, previewActive } = useAlignr();
+  const { activeVisualCue, breathMode, selectedPalette, previewActive, activePreviewMode } = useAlignr();
 
   return (
     <div className="min-h-screen">
       <BackgroundCarousel />
 
-      {/* Preview Overlay */}
-      {previewActive && (
-        <>
-          <PreviewOverlay overlayClass={`overlay-${activeVisualCue}`} active={previewActive} opacity={0.7} />
-          <BreathAnimation mode={breathMode} colors={selectedPalette.colors} active={previewActive} />
-        </>
+      {/* Preview Overlay - Updated to conditionally render based on activePreviewMode */}
+      {previewActive && activePreviewMode === "visual" && (
+        <PreviewOverlay overlayClass={`overlay-${activeVisualCue}`} active={previewActive} opacity={0.7} />
+      )}
+      {previewActive && activePreviewMode === "breath" && (
+        <BreathAnimation mode={breathMode} colors={selectedPalette.colors} active={previewActive} />
       )}
 
       {/* Main Content */}
