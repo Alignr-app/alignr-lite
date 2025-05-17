@@ -11,14 +11,12 @@ type ColorPalette = {
 interface AlignrState {
   activeVisualCue: string;
   setActiveVisualCue: (cue: string) => void;
-  breathMode: "focus" | "deep";
-  setBreathMode: (mode: "focus" | "deep") => void;
   selectedPalette: ColorPalette;
   setSelectedPalette: (palette: ColorPalette) => void;
   previewActive: boolean;
   setPreviewActive: (active: boolean) => void;
-  activePreviewMode: "visual" | "breath";
-  setActivePreviewMode: (mode: "visual" | "breath") => void;
+  activePreviewMode: "visual";
+  setActivePreviewMode: (mode: "visual") => void;
 }
 
 // Available color palettes
@@ -43,16 +41,13 @@ const AlignrContext = createContext<AlignrState | undefined>(undefined);
 // Create a provider component
 export const AlignrProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [activeVisualCue, setActiveVisualCue] = useState("foggy-forest");
-  const [breathMode, setBreathMode] = useState<"focus" | "deep">("focus");
   const [selectedPalette, setSelectedPalette] = useState<ColorPalette>(colorPalettes.coolTones);
   const [previewActive, setPreviewActive] = useState(false);
-  const [activePreviewMode, setActivePreviewMode] = useState<"visual" | "breath">("visual");
+  const [activePreviewMode, setActivePreviewMode] = useState<"visual">("visual");
 
   const value = {
     activeVisualCue,
     setActiveVisualCue,
-    breathMode,
-    setBreathMode,
     selectedPalette,
     setSelectedPalette,
     previewActive,

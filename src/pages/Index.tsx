@@ -4,23 +4,19 @@ import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { useAlignr } from "@/context/AlignrContext";
 import PreviewOverlay from "@/components/PreviewOverlay";
-import BreathAnimation from "@/components/BreathAnimation";
 import BackgroundCarousel from "@/components/BackgroundCarousel";
 import QuickStartCard from "@/components/customize/QuickStartCard";
 
 const Index: React.FC = () => {
-  const { activeVisualCue, breathMode, selectedPalette, previewActive, activePreviewMode } = useAlignr();
+  const { activeVisualCue, previewActive, activePreviewMode } = useAlignr();
 
   return (
     <div className="min-h-screen">
       <BackgroundCarousel />
 
-      {/* Preview Overlay - Updated to conditionally render based on activePreviewMode */}
+      {/* Preview Overlay */}
       {previewActive && activePreviewMode === "visual" && (
         <PreviewOverlay overlayClass={`overlay-${activeVisualCue}`} active={previewActive} opacity={0.7} />
-      )}
-      {previewActive && activePreviewMode === "breath" && (
-        <BreathAnimation mode={breathMode} colors={selectedPalette.colors} active={previewActive} />
       )}
 
       {/* Main Content */}
@@ -35,7 +31,7 @@ const Index: React.FC = () => {
           </Link>
         </div>
         
-        {/* Logo Below Buttons - added 50px more top margin */}
+        {/* Logo Below Buttons */}
         <div className="mt-[162px] flex justify-center">
           <img 
             src="/lovable-uploads/44437f12-5067-4515-980b-344d2c178c8c.png" 
