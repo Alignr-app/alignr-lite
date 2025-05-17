@@ -4,11 +4,7 @@ import { Card } from "@/components/ui/card";
 import { useAlignr } from "@/context/AlignrContext";
 import VisualCueCard from "@/components/VisualCueCard";
 
-interface MoodHalosTabProps {
-  setActivePreviewMode: (mode: "visual" | "breath") => void;
-}
-
-const MoodHalosTab: React.FC<MoodHalosTabProps> = ({ setActivePreviewMode }) => {
+const MoodHalosTab: React.FC = () => {
   const { activeVisualCue, setActiveVisualCue } = useAlignr();
 
   const visualCues = [
@@ -20,7 +16,6 @@ const MoodHalosTab: React.FC<MoodHalosTabProps> = ({ setActivePreviewMode }) => 
 
   const handleVisualCueClick = (cueId: string) => {
     setActiveVisualCue(cueId);
-    setActivePreviewMode("visual");
   };
 
   return (

@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
-import { useAlignr } from "@/context/AlignrContext";
 
 interface FooterActionsProps {
   previewActive: boolean;

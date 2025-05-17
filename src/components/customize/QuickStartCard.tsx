@@ -9,7 +9,7 @@ const QuickStartCard: React.FC = () => {
       <div className="flex flex-col sm:flex-row gap-4">
         <div className="flex-1">
           <p className="text-brand-lightBlue/90 mb-2">
-            Start aligning now - we'll cycle you into a new Mood or Entrainment Halo every hour.
+            Start experiencing Mood Halos right away - choose your preferred visual effect below.
           </p>
         </div>
         <div className="flex-1">
