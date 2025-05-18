@@ -13,7 +13,7 @@ const MoodHalosTab: React.FC<MoodHalosTabProps> = ({ setActivePreviewMode }) => 
 
   const visualCues = [
     { id: "foggy-forest", title: "Foggy Forest" },
-    { id: "colored-clouds", title: "Colored Clouds" },
+    { id: "colored-clouds", title: "Starry Night" },
     { id: "ocean-waves", title: "Ocean Waves" },
     { id: "liquid-gold", title: "Liquid Gold" },
   ];
