@@ -21,6 +21,15 @@ const Index: React.FC = () => {
 
       {/* Main Content */}
       <div className="flex-1 container max-w-md px-4 py-8 flex flex-col gap-6">
+        {/* Logo at the top of the page */}
+        <div className="flex justify-center mb-8">
+          <img 
+            src="/lovable-uploads/44437f12-5067-4515-980b-344d2c178c8c.png" 
+            alt="Alignr Logo" 
+            className="h-40 w-auto"
+          />
+        </div>
+
         <QuickStartCard />
         
         <div className="grid gap-4 mt-8">
@@ -29,15 +38,6 @@ const Index: React.FC = () => {
               <h2 className="text-xl font-semibold mb-4 text-brand-offWhite">Customize Your Experience</h2>
             </Card>
           </Link>
-        </div>
-        
-        {/* Logo Below Buttons */}
-        <div className="mt-[162px] flex justify-center">
-          <img 
-            src="/lovable-uploads/44437f12-5067-4515-980b-344d2c178c8c.png" 
-            alt="Alignr Logo" 
-            className="h-40 w-auto"
-          />
         </div>
       </div>
     </div>
