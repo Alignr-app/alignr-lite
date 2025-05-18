@@ -29,7 +29,7 @@ const QuickStartCard: React.FC = () => {
         </div>
         <div className="flex-1">
           <img 
-            src="/lovable-uploads/942f7b03-a937-424d-9f2e-e5b218ba55ca.png" 
+            src="/lovable-uploads/6941a5e7-30d1-4688-97dc-1d3428554e92.png" 
             alt="Visual cues preview" 
             className="rounded-md w-full h-32 object-cover"
           />
