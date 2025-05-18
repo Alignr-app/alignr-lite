@@ -25,7 +25,7 @@ const MoodHalosTab: React.FC<MoodHalosTabProps> = ({ setActivePreviewMode }) => 
 
   return (
     <Card className="p-5 glassmorphism">
-      <h2 className="text-lg font-medium mb-4 text-brand-offWhite">Choose Your Mood Halos</h2>
+      <h2 className="text-lg font-medium mb-4 text-brand-offWhite">Choose Your Mood Halo</h2>
       <div className="grid grid-cols-2 gap-4">
         {visualCues.map((cue) => (
           <VisualCueCard
