@@ -29,7 +29,7 @@ const VisualModeSettings: React.FC<VisualModeSettingsProps> = ({
 
   return (
     <div className="space-y-3">
-      <p className="text-sm text-brand-lightBlue/80">Mood Halos</p>
+      <p className="text-sm text-brand-lightBlue/80">Halos</p>
       <div className="grid grid-cols-2 gap-2">
         {visualCues.map((cue) => (
           <VisualCueCard

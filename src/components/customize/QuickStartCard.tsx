@@ -18,7 +18,7 @@ const QuickStartCard: React.FC = () => {
       <div className="flex flex-col sm:flex-row gap-4">
         <div className="flex-1">
           <p className="text-brand-lightBlue/90 mb-4">
-            Start aligning now - we'll cycle you into a new Mood Halo every hour.
+            Start aligning now - we'll cycle you into a new Halo every hour.
           </p>
           <Button 
             onClick={handleQuickStart}

@@ -28,7 +28,7 @@ const Customize: React.FC = () => {
       <div className="flex-1 container max-w-lg px-4 py-6">
         <div className="mb-6">
           <h1 className="text-2xl font-semibold text-brand-offWhite">Customize Your Experience</h1>
-          <p className="text-brand-lightBlue/90">Choose your visual mood halos</p>
+          <p className="text-brand-lightBlue/90">Choose your visual halos</p>
         </div>
 
         <QuickStartCard />

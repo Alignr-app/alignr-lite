@@ -33,7 +33,7 @@ const ScheduleModeSelector: React.FC<ScheduleModeSelectorProps> = ({
             htmlFor={`visual-${id}`} 
             className="text-brand-lightBlue cursor-pointer"
           >
-            Mood Halos
+            Halos
           </Label>
         </div>
         <div className="flex items-center space-x-2">
