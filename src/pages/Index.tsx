@@ -30,7 +30,9 @@ const Index: React.FC = () => {
           />
         </div>
 
-        {/* Customize Button - Now above QuickStart */}
+        <QuickStartCard />
+
+        {/* Customize Button - Now below QuickStart */}
         <div className="grid gap-4">
           <Link to="/customize" className="block">
             <Card className="p-6 text-center shadow-md transition-shadow glassmorphism active:bg-brand-blue/10 md:hover:shadow-lg md:hover:border-primary/30">
@@ -38,8 +40,6 @@ const Index: React.FC = () => {
             </Card>
           </Link>
         </div>
-
-        <QuickStartCard />
       </div>
     </div>
   );
