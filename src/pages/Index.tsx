@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useAlignr } from "@/context/AlignrContext";
 import PreviewOverlay from "@/components/PreviewOverlay";
@@ -39,6 +40,110 @@ const Index: React.FC = () => {
               <h2 className="text-xl font-semibold mb-4 text-brand-offWhite">Customize Your Experience</h2>
             </Card>
           </Link>
+        </div>
+
+        {/* Customization Options - 8 Halo Buttons */}
+        <div className="grid grid-cols-2 gap-4 mt-6">
+          <button className="relative overflow-hidden rounded-lg border border-brand-blue/30 glassmorphism hover:border-brand-gold/50 transition-all">
+            <img 
+              src="/lovable-uploads/bubbles-thumb.jpg" 
+              alt="Bubbles Halo" 
+              className="w-full h-24 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+              <span className="text-brand-offWhite text-sm font-medium p-2">Bubbles</span>
+            </div>
+          </button>
+          
+          <button className="relative overflow-hidden rounded-lg border border-brand-blue/30 glassmorphism hover:border-brand-gold/50 transition-all">
+            <img 
+              src="/lovable-uploads/diamonds.jpg" 
+              alt="Diamonds Halo" 
+              className="w-full h-24 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+              <span className="text-brand-offWhite text-sm font-medium p-2">Diamonds</span>
+            </div>
+          </button>
+          
+          <button className="relative overflow-hidden rounded-lg border border-brand-blue/30 glassmorphism hover:border-brand-gold/50 transition-all">
+            <img 
+              src="/lovable-uploads/dragon-thumb.jpg" 
+              alt="Dragon Halo" 
+              className="w-full h-24 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+              <span className="text-brand-offWhite text-sm font-medium p-2">Dragon</span>
+            </div>
+          </button>
+          
+          <button className="relative overflow-hidden rounded-lg border border-brand-blue/30 glassmorphism hover:border-brand-gold/50 transition-all">
+            <img 
+              src="/lovable-uploads/pink.jpg" 
+              alt="Pink Marble Halo" 
+              className="w-full h-24 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+              <span className="text-brand-offWhite text-sm font-medium p-2">Pink Marble</span>
+            </div>
+          </button>
+          
+          <button className="relative overflow-hidden rounded-lg border border-brand-blue/30 glassmorphism hover:border-brand-gold/50 transition-all">
+            <img 
+              src="/lovable-uploads/smoke-thumb.jpg" 
+              alt="Smoke Halo" 
+              className="w-full h-24 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+              <span className="text-brand-offWhite text-sm font-medium p-2">Smoke</span>
+            </div>
+          </button>
+          
+          <button className="relative overflow-hidden rounded-lg border border-brand-blue/30 glassmorphism hover:border-brand-gold/50 transition-all">
+            <img 
+              src="/lovable-uploads/snowflake-halo-thumb.jpg" 
+              alt="Snowflake Halo" 
+              className="w-full h-24 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+              <span className="text-brand-offWhite text-sm font-medium p-2">Snowflake</span>
+            </div>
+          </button>
+          
+          <button className="relative overflow-hidden rounded-lg border border-brand-blue/30 glassmorphism hover:border-brand-gold/50 transition-all">
+            <img 
+              src="/lovable-uploads/sparkles.jpg" 
+              alt="Sparkles Halo" 
+              className="w-full h-24 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+              <span className="text-brand-offWhite text-sm font-medium p-2">Sparkles</span>
+            </div>
+          </button>
+          
+          <button className="relative overflow-hidden rounded-lg border border-brand-blue/30 glassmorphism hover:border-brand-gold/50 transition-all">
+            <img 
+              src="/lovable-uploads/waves-thumb.jpg" 
+              alt="Ocean Waves Halo" 
+              className="w-full h-24 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+              <span className="text-brand-offWhite text-sm font-medium p-2">Ocean Waves</span>
+            </div>
+          </button>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex flex-col gap-3 mt-6">
+          <Button className="border border-brand-blue/30 bg-brand-darkBlue text-brand-gold hover:bg-brand-gold hover:text-brand-darkBlue">
+            Save Changes
+          </Button>
+          <Button 
+            variant="outline" 
+            className="border-brand-blue/30 text-brand-lightBlue hover:bg-brand-blue/10"
+          >
+            Exit Alignr
+          </Button>
         </div>
       </div>
     </div>
