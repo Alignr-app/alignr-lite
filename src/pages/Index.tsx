@@ -25,7 +25,7 @@ const Index: React.FC = () => {
         {/* Logo at the top of the page */}
         <div className="flex justify-center mb-8">
           <img 
-            src="/lovable-uploads/44437f12-5067-4515-980b-344d2c178c8c.png" 
+            src="/lovable-uploads/alignr-full-logo.png" 
             alt="Alignr Logo" 
             className="h-40 w-auto"
           />
