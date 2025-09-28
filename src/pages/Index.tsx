@@ -31,6 +31,13 @@ const Index: React.FC = () => {
           />
         </div>
 
+        {/* Tagline */}
+        <div className="text-center mb-8">
+          <p className="text-brand-offWhite text-lg font-medium max-w-sm mx-auto">
+            Align your attention with your intention via our moment-to-moment mindful support.
+          </p>
+        </div>
+
         <QuickStartCard />
 
         {/* Customize Button - Now below QuickStart */}
